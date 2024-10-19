@@ -9,6 +9,7 @@ import { Milk } from './pages/Milk/milk';
 import { BeefFattening } from './pages/BeefFattening/beeffattening';
 import { Vermicompost } from './pages/VermiCompost/vermicompost';
 import { Report } from './pages/Report/report';
+import { Cowdetails } from './pages/Cow/cowdetails';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route element={<Milk/>} exact path='/milk'/>
         <Route element={<Vermicompost/>} exact path='/vermicompost'/>
         <Route element={<Report/>} exact path='/report'/>
+        <Route element={<Cowdetails/>} exact path='/cowdetails'/>
       
       </Routes>
 

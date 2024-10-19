@@ -70,7 +70,7 @@ function Farmar() {
           title="Breeding"
           description="This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare selling, feeding and report."
           buttonText="Click Here"
-          link="cow"
+          link="cowdetails"
         />
 
        <Card
