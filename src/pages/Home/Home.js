@@ -22,8 +22,12 @@ import './CSS/style.css'
 import { FaAward, FaCheck, FaFacebook, FaLinkedin, FaMugHot, FaPhoneAlt, FaSeedling, FaStar, FaTractor, FaTwitter, FaUsers, FaYoutube } from 'react-icons/fa'
 import { BiArrowFromRight, BiArrowToRight, BiEnvelopeOpen } from 'react-icons/bi'
 import { FaCow } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+
+    const navigator = useNavigate()
+
     return (
         <div>
             <div className="container-fluid px-5 d-none d-lg-block">
@@ -41,14 +45,20 @@ const Home = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="col-lg-3">
+                    <div className="col-lg-2">
+                    
                         <div className="d-flex align-items-center justify-content-end">
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter /></a>
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook /></a>
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin /></a>
                             <a className="btn btn-success2 btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube /></a>
+                        
+                            
                         </div>
+                        
                     </div>
+                    
+                    
                 </div>
             </div>
             {/* <!-- Topbar End --> */}
@@ -79,6 +89,18 @@ const Home = () => {
                             </div>
                         </div>
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+                <div className='d-flex align-items-center justify-content-center'>
+                    <div onClick={() => {
+                        navigator('/login')
+                    }} className='mx-3'>
+                        <h4 className='bg-login'>Login</h4>
+                    </div>
+                    <div onClick={() => {
+                        navigator('/register')
+                    }}>
+                        <h4 className='bg-register'>Sign Up</h4>
                     </div>
                 </div>
             </nav>

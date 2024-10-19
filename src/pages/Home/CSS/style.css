@@ -85,7 +85,7 @@
 
 .text-success2 {
     color: #37AE57 !important;
-    
+
 }
 
 .border-success2 {
@@ -300,6 +300,21 @@
 .bg-footer {
     background: linear-gradient(rgba(52, 173, 84, .7), rgba(52, 173, 84, .7)), url(../images/footer.png) center bottom no-repeat;
     background-size: contain;
+}
+
+.bg-login {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bg-register {
+    background-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
 }
 
 @media (min-width: 991.98px) {
