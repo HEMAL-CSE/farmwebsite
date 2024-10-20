@@ -15,9 +15,13 @@ import { Cowdetails } from './pages/Cow/cowdetails';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import { Calfdetails } from './pages/Calf/calfdetails';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 function App() {
   return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+
     
     <BrowserRouter>
 
@@ -41,7 +45,7 @@ function App() {
 
     </BrowserRouter>
 
-
+</LocalizationProvider>
   );
 }
 

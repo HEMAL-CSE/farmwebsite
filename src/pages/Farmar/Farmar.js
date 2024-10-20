@@ -49,8 +49,6 @@ function Farmar() {
                         <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
-                                <a href="blog.html" className="dropdown-item">Blog Grid</a>
-                                <a href="detail.html" className="dropdown-item">Blog Detail</a>
                                 <a href="feature.html" className="dropdown-item">Features</a>
                                 <a href="team.html" className="dropdown-item">The Team</a>
                                 <a href="testimonial.html" className="dropdown-item">Testimonial</a>

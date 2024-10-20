@@ -15,7 +15,7 @@
     color: #37AE57;
     margin-bottom: 28px;
 }
-.details input, .details textarea, .details select{
+.details .input, .details textarea, .details .select{
     width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
@@ -23,13 +23,14 @@
     box-sizing: border-box;
     display: block;
 }
-.details button{
+.details .button{
     background: #37AE57;
-    /* color: white; */
     color: #fff;
     border: 0;
     padding: 8px;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 12px;
+    display: block;
+    margin-left: 120px;
 }
