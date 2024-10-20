@@ -1,0 +1,15 @@
+.nav-link:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+.sidebar{
+    width: 23%;
+}
+
+.nav-link-chosen{
+    background-color: green;
+    cursor: pointer; 
+}
+
+#submenu {transition: ease-in .3s;}
