@@ -50,7 +50,7 @@ export const Calf = () => {
                 </a>
               </li>
               <li className='nav-item text-white fs-4 my-1'>
-                <a className='nav-link text-white fs-5'>
+                <a className='nav-link text-white fs-5' href='calfdetails'>
                   <FaUserDoctor />
                   <span className='ms-2 d-none d-sm-inline'>Treatment</span>
                 </a>

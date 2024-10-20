@@ -14,6 +14,7 @@ import { Cowdetails } from './pages/Cow/cowdetails';
 
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import { Calfdetails } from './pages/Calf/calfdetails';
 
 function App() {
   return (
@@ -31,8 +32,10 @@ function App() {
         <Route element={<Report/>} exact path='/report'/>
 
         <Route element={<Cowdetails/>} exact path='/cowdetails'/>
+        <Route element={<Calfdetails/>} exact path='/calfdetails'/>
         <Route element={<Login />} exact path='/login'/>
         <Route element={<Register />} exact path='/register' />
+
       
       </Routes>
 

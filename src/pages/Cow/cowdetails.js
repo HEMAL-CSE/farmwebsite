@@ -1,8 +1,9 @@
 import React from 'react'
+import './cowdetails.css'
 
 export const Cowdetails = () => {
   return (
-<div>
+<div className='details'>
         <h2>Cow Purchase</h2>
 <form>
 
@@ -29,6 +30,7 @@ required
     <option value={'cow2'}>Cow2</option>
     <option value={'cow3'}>Cow3</option>
 </select>
+
 <button>Submit</button>
 
 </form>
