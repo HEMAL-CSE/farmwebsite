@@ -65,8 +65,8 @@ function Farmar() {
         <Card
           imgSrc= {cowimage}
           imgAlt="Card Image 1"
-          title="Breeding"
-          description="This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare selling, feeding and report."
+          title="গাভী"
+          description="এই বিভাগে গরু ক্রয়, ডেলিভারি, খরচ, চিকিৎসা, স্বাস্থ্যসেবা বিক্রি, খাওয়ানো এবং রিপোর্টের মতো গরু ব্যবস্থাপনা সম্পর্কিত মডিউল সরবরাহ করে।"
           buttonText="Click Here"
           link="cowdetails"
         />
@@ -74,7 +74,7 @@ function Farmar() {
        <Card
           imgSrc= {calfImage}
           imgAlt="Card Image 1"
-          title="Calf"
+          title="বাছুর"
           description="This Section provides Calf management related modules like birth info, expenses, treatment, seller, buyer and report realted information."
           buttonText="Click Here"
           link="calf"
@@ -83,17 +83,17 @@ function Farmar() {
       <Card
           imgSrc= {beeffattening}
           imgAlt="Card Image 1"
-          title="Beef Fattening"
+          title="গরু মোটাতাজা"
           description="This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information"
           buttonText="Click Here"
-          link="beeffattening"
+          link="beeffatteninglayout"
         />
 
         
         <Card
           imgSrc= {dairy}
           imgAlt="Card Image 3"
-          title="Milk"
+          title="দুধ"
           description="This is the card description section. You can add more details about the product here"
           buttonText="Click Here"
           link="milk"
@@ -102,7 +102,7 @@ function Farmar() {
       <Card
           imgSrc= {vermicompost}
           imgAlt="Card Image 1"
-          title="Vermicompost"
+          title="জৈব সার"
           description="This is the card description section. You can add more details about the product here"
           buttonText="Click Here"
           link="vermicompost"
@@ -111,7 +111,7 @@ function Farmar() {
     <Card
           imgSrc= {report}
           imgAlt="Card Image 1"
-          title="Report"
+          title="রিপোর্ট"
           description="This is the card description section. You can add more details about the product here"
           buttonText="Click Here"
           link="report"
