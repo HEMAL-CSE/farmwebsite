@@ -3,11 +3,32 @@ import './cowdetails.css'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
 export const Cowdetails = () => {
+  const [value, setValue] = React.useState(dayjs());
   return (
 <div className='details'>
-        <h2>Cow Purchase</h2>
+        {/* <h2>Cow Purchase</h2> */}
+        <div className="container-fluid px-5 d-none d-lg-block">
+                <div className="row gx-5 py-3 align-items-center">
+                    <div className="col-lg-3">
+                        {/* <div className="d-flex align-items-center justify-content-start">
+                            <BsPhoneVibrate className='text-success2 fs-1 me-2' />
+                            <h2 className="mb-0">+012 345 6789</h2>
+                        </div> */}
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="d-flex align-items-center justify-content-center">
+                            <a href="index.html" className="navbar-brand ms-lg-5">
+                                <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cow</span> Purchase</h1>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+          </div>
+
 <form>
 
 <label>Select Shed ID:</label>
@@ -34,9 +55,22 @@ required
 </select>
 
 <label>Select Date:</label>
-<LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker />
-    </LocalizationProvider>
+
+<div style={{ textAlign: 'left',
+      width: '100%', 
+      // border: '1px solid #ccc',
+      padding: '0px',
+      marginTop: '6px',
+      }}> {/* Aligns content to the left */}
+      {/* <label>Select Date:</label> */}
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          // value={value}
+          // onChange={(newValue) => setValue(newValue)}
+          // renderInput={(params) => <input {...params} />}
+        />
+      </LocalizationProvider>
+    </div>
 
 <button className='button'>Submit</button>
 

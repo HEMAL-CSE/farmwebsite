@@ -75,7 +75,7 @@ const CalfLayout = ({children}) => {
       
       return (
         <div className='layout d-flex'>
-          <Sidebar elements={sidebarElements} name={'Calf'} />
+          <Sidebar className='calf' elements={sidebarElements} name={'Calf'} />
           <div className='ms-4'>
           {children}
           </div>
