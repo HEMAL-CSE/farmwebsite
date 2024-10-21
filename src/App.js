@@ -20,6 +20,8 @@ import { BeefFatteningLayout } from './pages/BeefFattening/beeffatteninglayout';
 import Calf_feed from './pages/Calf/calf_feef';
 import CalfLabour from './pages/Calf/calf_labour';
 import { Calf_selling } from './pages/Calf/Calf_selling';
+import { Calf_customer } from './pages/Calf/calf_customer';
+import { Calf_report } from './pages/Calf/calf_report';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -31,11 +33,14 @@ function App() {
         <Route element={<Home/>} exact path='/' />
         <Route element={<Farmar/>} exact path='/farmar'/>
         <Route element={<Cow/>} exact path='/cow'/>
+        <Route element={<CowLayout/>} exact path='/cow'/>
         <Route element={<BeefFatteningLayout/>} exact path='/beeffatteninglayout'/>
         <Route element={<Calf/>} exact path='/calf/birth_info'/>
         <Route element={<Calf_feed />} exact path='/calf/feed' />
         <Route element={<CalfLabour />} exact path='/calf/labour' />
         <Route element={<Calf_selling />} exact path='/calf/selling' />
+        <Route element={<Calf_customer />} exact path='/calf/customer' />
+        <Route element={<Calf_report />} exact path='/calf/report' />
 
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}

@@ -98,7 +98,6 @@ export const Calf = () => {
     }
 
     getData()
-
     
   }
 
@@ -158,8 +157,6 @@ export const Calf = () => {
           <input value={calf_id} onChange={e => setCalf_id(e.target.value)} className='input' type='text'
 
           />
-
-
 
           <button onClick={addData} className='button'>Submit</button>
 
@@ -259,9 +256,6 @@ export const Calf = () => {
             <input value={edit_calf_id} onChange={e => setEdit_calf_id(e.target.value)} className='input' type='text'
 
             />
-
-
-
             <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
 
           </form>
