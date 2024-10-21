@@ -48,25 +48,25 @@ const CalfLayout = ({children}) => {
         },
         {
           name: 'Treatment',
-          pathname: '/calf/birth_info',
+          pathname: '/calf/treatment',
           icon: FaUserDoctor,
           submenu: []
         },
         {
           name: 'Selling',
-          pathname: '/calf/birth_info',
+          pathname: '/calf/selling',
           icon: BiMoney,
           submenu: []
         },
         {
           name: 'Customer',
-          pathname: '/calf/birth_info',
+          pathname: '/calf/customer',
           icon: BsPeople,
           submenu: []
         },
         {
           name: 'Report',
-          pathname: '/calf/birth_info',
+          pathname: '/calf/report',
           icon: MdReport,
           submenu: []
         },
@@ -76,8 +76,8 @@ const CalfLayout = ({children}) => {
       return (
         <div className='layout d-flex'>
           <Sidebar className='calf' elements={sidebarElements} name={'Calf'} />
-          <div className='ms-4'>
-          {children}
+          <div className='ms-4 vw-100 d-flex justify-content-center'>
+            {children}
           </div>
           
         </div>

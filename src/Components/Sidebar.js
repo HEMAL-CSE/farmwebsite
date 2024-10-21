@@ -9,6 +9,7 @@ import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 import { CgArrowBottomLeft } from 'react-icons/cg'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Sidebar = ({ elements, name }) => {
     const location = useLocation();
@@ -27,11 +28,13 @@ const Sidebar = ({ elements, name }) => {
                             elements.map(element => (
                                 <li  onClick={ () => {
                                     if(element.submenu.length == 0){
+                                        console.log('hello');
+                                        
                                         navigator(element.pathname)
                                     }
                                    
                                 }} className='nav-item text-white fs-4 my-1'>
-                                    <a href={element.submenu.length >0 && `#submenu`} className={`${pathname == `${element.pathname}` ? 'nav-link-chosen' : 'nav-link'} text-white`}  data-bs-toggle={element.submenu.length >0 &&`collapse`}>
+                                    <a href={element.submenu.length >0 && `#submenu`} className={`nav-link text-white`}  data-bs-toggle={element.submenu.length >0 &&`collapse`}>
                                         <element.icon />
                                         <span className='ms-2 d-none d-sm-inline'>{element.name}</span>
                                         {element.submenu.length >0 && <BiArrowToBottom className='mx-2' />}
@@ -42,7 +45,7 @@ const Sidebar = ({ elements, name }) => {
                                                 <li onClick={() => {
                                                     navigator(sub.pathname)
                                                 }} className='nav-item text-white ms-4'>
-                                                    <a className={`${pathname == `${sub.pathname}` ? 'nav-link-chosen' : 'nav-link'} text-white`}>{sub.name}</a>
+                                                    <a className={`nav-link text-white`}>{sub.name}</a>
                                                 </li>
                                             ))
                                         }

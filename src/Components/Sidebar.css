@@ -10,6 +10,12 @@
 .nav-link-chosen{
     background-color: green;
     cursor: pointer; 
+    padding: 30px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    transition: .5s;
 }
 
 #submenu {transition: ease-in .3s;}
