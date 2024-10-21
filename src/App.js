@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Farmar from './pages/Farmar/Farmar';
 import { Cow } from './pages/Cow/cow';
-import { Calf } from './pages/Calf/calf';
+import { Calf } from './pages/Calf/calf_birth';
 import { Milk } from './pages/Milk/milk';
 import { Vermicompost } from './pages/VermiCompost/vermicompost';
 import { Report } from './pages/Report/report';
@@ -17,7 +17,9 @@ import { Calfdetails } from './pages/Calf/calfdetails';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { BeefFatteningLayout } from './pages/BeefFattening/beeffatteninglayout';
-
+import Calf_feed from './pages/Calf/calf_feef';
+import CalfLabour from './pages/Calf/calf_labour';
+import { Calf_selling } from './pages/Calf/Calf_selling';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -29,8 +31,14 @@ function App() {
         <Route element={<Home/>} exact path='/' />
         <Route element={<Farmar/>} exact path='/farmar'/>
         <Route element={<Cow/>} exact path='/cow'/>
-        <Route element={<Calf/>} exact path='/calf'/>
         <Route element={<BeefFatteningLayout/>} exact path='/beeffatteninglayout'/>
+        <Route element={<Calf/>} exact path='/calf/birth_info'/>
+        <Route element={<Calf_feed />} exact path='/calf/feed' />
+        <Route element={<CalfLabour />} exact path='/calf/labour' />
+        <Route element={<Calf_selling />} exact path='/calf/selling' />
+
+
+        {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}
         <Route element={<Milk/>} exact path='/milk'/>
         <Route element={<Vermicompost/>} exact path='/vermicompost'/>
         <Route element={<Report/>} exact path='/report'/>

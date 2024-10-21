@@ -77,7 +77,7 @@ function Farmar() {
           title="বাছুর"
           description="This Section provides Calf management related modules like birth info, expenses, treatment, seller, buyer and report realted information."
           buttonText="Click Here"
-          link="calf"
+          link="calf/birth_info" 
         />
 
       <Card
