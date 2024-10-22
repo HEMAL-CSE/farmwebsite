@@ -105,8 +105,7 @@ export const Calf_selling = () => {
       }
   
       getData()
-  
-      
+    
     }
   
     return (
