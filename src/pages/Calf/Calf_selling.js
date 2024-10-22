@@ -25,11 +25,17 @@ export const Calf_selling = () => {
     const [shed_id, setShed_id] = useState('')
     const [seat_id, setSeat_id] = useState('')
     const [calf_id, setCalf_id] = useState('')
+    const [calf_price, setCalf_price] = useState('')
+    const [calf_date, setCalf_date] = useState('')
+
+
   
     const [edit_shed_id, setEdit_shed_id] = useState('')
     const [edit_seat_id, setEdit_seat_id] = useState('')
     const [edit_calf_id, setEdit_calf_id] = useState('')
     const [edit_id, setEdit_id] = useState('')
+    const [edit_calf_price, setEdit_calf_price] = useState('')
+    const [Edit_date, setEdit_date] = useState('')
   
     const [isOpen, setIsOpen] = useState(false)
   
@@ -118,7 +124,7 @@ export const Calf_selling = () => {
               <div className="col-lg-6">
                 <div className="d-flex align-items-center justify-content-center">
                   <a href="index.html" className="navbar-brand ms-lg-5">
-                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Calf</span> Birth</h1>
+                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Calf</span> Selling</h1>
                   </a>
                 </div>
               </div>
@@ -127,7 +133,24 @@ export const Calf_selling = () => {
           </div>
   
           <form>
-  
+
+          <label>Select Date:</label>
+
+     <div style={{ textAlign: 'left',
+      width: '100%', 
+      // border: '1px solid #ccc',
+      padding: '0px',
+      marginTop: '5px',
+      }}> {/* Aligns content to the left */}
+      {/* <label>Select Date:</label> */}
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          // value={value}
+          // onChange={(newValue) => setValue(newValue)}
+          // renderInput={(params) => <input {...params} />}
+        />
+      </LocalizationProvider>
+     </div>
             <label>Select Shed ID:</label>
             <select value={shed_id} onChange={e => {
               setShed_id(e.target.value)
@@ -157,10 +180,11 @@ export const Calf_selling = () => {
   
             <label>Calf ID:</label>
             <input value={calf_id} onChange={e => setCalf_id(e.target.value)} className='input' type='text'
-  
             />
-  
-  
+
+            <label>Calf Price:</label>
+            <input value={calf_price} onChange={e => setCalf_price(e.target.value)} className='input' type='text'
+            />
   
             <button onClick={addData} className='button'>Submit</button>
   
@@ -170,9 +194,11 @@ export const Calf_selling = () => {
           <table className='table'>
             <thead>
               <tr>
+              <th scope='col'>Selling Date</th>
                 <th scope='col'>Calf ID</th>
                 <th scope='col'> Shed ID</th>
                 <th scope='col'>Seat ID</th>
+                <th scope='col'>Calf Price</th>
                 <th scope='col'>Edit/Delete</th>
   
               </tr>
@@ -181,9 +207,11 @@ export const Calf_selling = () => {
               {
                 data.map(calf => (
                   <tr>
+                    <td>{calf.calf_date}</td>
                     <td>{calf.calf_id}</td>
                     <td>{calf.shed_id}</td>
                     <td>{calf.seat_id}</td>
+                    <td>{calf.calf_price}</td>
                     <td>
                       <button onClick={() => {
                         setEdit_calf_id(calf.calf_id)
@@ -228,7 +256,7 @@ export const Calf_selling = () => {
             }}
           >
             <form className='details'>
-  
+
               <label>Select Shed ID:</label>
               <select value={edit_shed_id} onChange={e => {
                 setEdit_shed_id(e.target.value)
@@ -258,11 +286,11 @@ export const Calf_selling = () => {
   
               <label>Calf ID:</label>
               <input value={edit_calf_id} onChange={e => setEdit_calf_id(e.target.value)} className='input' type='text'
-  
               />
-  
-  
-  
+
+              <label>Calf Price:</label>
+              <input value={edit_calf_price} onChange={e => setEdit_calf_price(e.target.value)} className='input' type='text'
+              />
               <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
   
             </form>
