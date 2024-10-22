@@ -95,7 +95,7 @@ const Register = () => {
     const handleFarmSubmit = e => {
         e.preventDefault()
 
-        axios.post(`http://68.178.163.174:5000/users/register`, {
+        axios.post(`http://68.178.163.174:5010/users/register`, {
             name: farm_name,
             mobile,
             email,
@@ -103,7 +103,7 @@ const Register = () => {
             passward
         }).then(res => {
 
-            axios.post('http://68.178.163.174:5000/farm/add', {
+            axios.post('http://68.178.163.174:5010/farm/add', {
                 farm_name,
                 division,
                 district,
@@ -121,14 +121,14 @@ const Register = () => {
 
     const handleDoctorSubmit = e => {
         e.preventDefault()
-        axios.post('http://68.178.163.174:5000/users/register', {
+        axios.post('http://68.178.163.174:5010/users/register', {
             name,
             mobile,
             email,
             user_type_id,
             passward
         }).then(res => {
-            axios.post('http://68.178.163.174:5000/doctors/add', {
+            axios.post('http://68.178.163.174:5010/doctors/add', {
                 user_id: res.data.user_id,
                 address
             }).then(res => {
