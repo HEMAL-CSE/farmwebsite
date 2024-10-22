@@ -50,7 +50,16 @@ const CalfLayout = ({children}) => {
           name: 'Treatment',
           pathname: '/calf/treatment',
           icon: FaUserDoctor,
-          submenu: []
+          submenu: [
+            {
+              name: 'Doctors',
+              pathname: '/calf/doctors'
+            },
+            {
+              name: 'Treatment',
+              pathname: '/calf/treatment'
+            }
+          ]
         },
         {
           name: 'Selling',

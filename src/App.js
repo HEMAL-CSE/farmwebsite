@@ -22,6 +22,8 @@ import CalfLabour from './pages/Calf/calf_labour';
 import { Calf_selling } from './pages/Calf/Calf_selling';
 import { Calf_customer } from './pages/Calf/calf_customer';
 import { Calf_report } from './pages/Calf/calf_report';
+import Calf_doctors from './pages/Calf/calf_doctors';
+import CalfTreatment from './pages/Calf/calf_treatment';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -41,6 +43,8 @@ function App() {
         <Route element={<Calf_selling />} exact path='/calf/selling' />
         <Route element={<Calf_customer />} exact path='/calf/customer' />
         <Route element={<Calf_report />} exact path='/calf/report' />
+        <Route element={<Calf_doctors />} exact path='/calf/doctors' />
+        <Route element={<CalfTreatment />} exact path='/calf/treatment' />
 
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}

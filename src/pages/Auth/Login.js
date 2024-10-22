@@ -11,7 +11,7 @@ const Login = () => {
     const goToLink = (user_type_id, user_id) => {
         switch (user_type_id){
             case 6:
-                axios.get(`http://68.178.163.174:5000/farm/check_approved?owner_id=${user_id}`).then(
+                axios.get(`http://68.178.163.174:5010/farm/check_approved?owner_id=${user_id}`).then(
                     res => {
                         if(res.data.checked){
                             toast('Login Successful')
@@ -32,8 +32,8 @@ const Login = () => {
         let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
         if(mobileorusercode.match(emailRegex)){
-            axios.post(`http://68.178.163.174:5000/users/login`, {
-                email: mobileorusercode,
+            axios.post(`http://68.178.163.174:5010/users/login`, {
+                mobile: mobileorusercode,
                 password: password
             }).then(res => {
                 localStorage.setItem('user_type_id', res.data.user_type_id)
@@ -42,8 +42,8 @@ const Login = () => {
             })
     
         }else{
-            axios.post(`http://68.178.163.174:5000/users/login?email=0`, {
-                email: mobileorusercode,
+            axios.post(`http://68.178.163.174:5010/users/login?email=0`, {
+                mobile: mobileorusercode,
                 password: password
             }).then(res => {
                 localStorage.setItem('user_type_id', res.data.user_type_id)
