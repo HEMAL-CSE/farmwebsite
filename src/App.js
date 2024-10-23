@@ -24,6 +24,7 @@ import { Calf_customer } from './pages/Calf/calf_customer';
 import { Calf_report } from './pages/Calf/calf_report';
 import Calf_doctors from './pages/Calf/calf_doctors';
 import CalfTreatment from './pages/Calf/calf_treatment';
+import { Earthworm } from './pages/VermiCompost/earthworm';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -40,6 +41,7 @@ function App() {
         <Route element={<Calf/>} exact path='/calf/birth_info'/>
         <Route element={<Calf_feed />} exact path='/calf/feed' />
         <Route element={<CalfLabour />} exact path='/calf/labour' />
+        <Route element={<CalfLabour />} exact path='/calf/labour' />
         <Route element={<Calf_selling />} exact path='/calf/selling' />
         <Route element={<Calf_customer />} exact path='/calf/customer' />
         <Route element={<Calf_report />} exact path='/calf/report' />
@@ -49,7 +51,8 @@ function App() {
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}
         <Route element={<Milk/>} exact path='/milk'/>
-        <Route element={<Vermicompost/>} exact path='/vermicompost'/>
+        {/* <Route element={<Vermicompost/>} exact path='/vermicompost'/> */}
+        <Route element={<Earthworm/>} exact path='/vermicompost/earthworm'/>
         <Route element={<Report/>} exact path='/report'/>
 
         <Route element={<Cowdetails/>} exact path='/cowdetails'/>
