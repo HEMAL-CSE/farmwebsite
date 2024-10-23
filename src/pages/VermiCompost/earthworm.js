@@ -103,7 +103,7 @@ export const Earthworm = () => {
   }
 
   return (
-    <Earthworm>
+    <Vermicompost>
       <div className='details'>
         {/* <h2>Cow Purchase</h2> */}
         <div className="container-fluid px-5 d-none d-lg-block">
@@ -263,6 +263,6 @@ export const Earthworm = () => {
         </Modal>
 
       </div>
-    </Earthworm>
+    </Vermicompost>
   )
 }
