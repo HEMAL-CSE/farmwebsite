@@ -1,13 +1,84 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './cowdetails.css'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from 'dayjs';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+// import { LocalizationProvider } from '@mui/x-date-pickers';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import dayjs from 'dayjs';
+import Cowlayout from './Cowlayout';
+import axios from 'axios';
 
 export const Cowdetails = () => {
-  const [value, setValue] = React.useState(dayjs());
+  const [shed_id, setShed_id] = useState('')
+  const [seat_id, setSeat_id] = useState('')
+  const [cow_id, setCow_id] = useState('')
+  const [purchase_date, setPurchase_date] = useState('')
+  const [pregnant, setPregnant] = useState('')
+  const [price, setPrice] = useState('')
+  const [weight, setWeight] = useState('')
+  const [pregnantMonth, setPregnantMonth] = useState('')
+  const [supposed_delivery_date, setSupposed_delivery_date] = useState('')
+  
+  const [edit_id, setEdit_id] = useState('') 
+  const [edit_shed_id, setEdit_shed_id] = useState('')
+  const [edit_seat_id, setEdit_seat_id] = useState('')
+  const [edit_cow_id, setEdit_cow_id] = useState('')
+  const [edit_purchase_date, setEdit_purchase_date] = useState('')
+  const [edit_pregnant, setEdit_pregnant] = useState('')
+  const [edit_price, setEdit_price] = useState('')
+  const [edit_weight, setEdit_weight] = useState('')
+  const [edit_pregnant_month, setEdit_pregnant_month] = useState('')
+  const [edit_supposed_delivery_date, setEdit_supposed_delivery_date] = useState('')
+
+  const [sheds, setSheds] = useState([])
+  const [seats, setSeats] = useState([])
+  const [pregnants, setPregnants] = useState([
+    {
+      name: 'Yes',
+      value: '1', 
+    }, 
+    {
+      name: 'No',
+      value: '0'
+    }
+  ])
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(`http://68.178.163.174:5010/breeding/sheds`).then(res => {
+      setSheds(res.data)
+    })
+
+    getData()
+  })
+
+  const getSeats = (shed_id) => {
+    axios.get(`http://68.178.163.174:5010/breeding/seats?shed_id=${shed_id}`)
+    .then(res => {
+      setSeats(res.data)
+    })
+  }
+
+  const getData = () => {
+    axios.get('http://68.178.163.174:5010/breeding/cows')
+    .then(res => {
+      setData(res.data)
+    })
+  }
+
+  const addData = () => {
+    axios.post('http://68.178.163.174:5010/breeding/cow_purchase', {
+      shed_id,
+      seat_id,
+      cow_id,
+      purchase_date,
+      
+    })
+  }
+
+  
   return (
+    <Cowlayout>
+
 <div className='details'>
         {/* <h2>Cow Purchase</h2> */}
         <div className="container-fluid px-5 d-none d-lg-block">
@@ -55,22 +126,8 @@ required
 </select>
 
 <label>Select Date:</label>
+<input className='input' type='date' />
 
-<div style={{ textAlign: 'left',
-      width: '100%', 
-      // border: '1px solid #ccc',
-      padding: '0px',
-      marginTop: '6px',
-      }}> {/* Aligns content to the left */}
-      {/* <label>Select Date:</label> */}
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          // value={value}
-          // onChange={(newValue) => setValue(newValue)}
-          // renderInput={(params) => <input {...params} />}
-        />
-      </LocalizationProvider>
-    </div>
 
 <button className='button'>Submit</button>
 
@@ -78,5 +135,7 @@ required
 
 
 </div>
+</Cowlayout>
+
   )
 }

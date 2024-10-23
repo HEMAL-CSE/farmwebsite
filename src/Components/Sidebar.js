@@ -34,12 +34,12 @@ const Sidebar = ({ elements, name }) => {
                                     }
                                    
                                 }} className='nav-item text-white fs-4 my-1'>
-                                    <a href={element.submenu.length >0 && `#submenu`} className={`nav-link text-white`}  data-bs-toggle={element.submenu.length >0 &&`collapse`}>
+                                    <a href={element.submenu.length >0 && `#submenu-${element.name}`} className={`nav-link text-white`}  data-bs-toggle={element.submenu.length >0 &&`collapse`}>
                                         <element.icon />
                                         <span className='ms-2 d-none d-sm-inline'>{element.name}</span>
                                         {element.submenu.length >0 && <BiArrowToBottom className='mx-2' />}
                                     </a>
-                                    <ul className='nav collapse ms-1 flex-column' id='submenu' data-bs-parent='#parentM'>
+                                    <ul className={`nav collapse  ms-1 flex-column`} id={`submenu-${element.name}`} data-bs-parent='#parentM'>
                                         {element.submenu.length >0 &&
                                             element.submenu.map(sub => (
                                                 <li onClick={() => {

@@ -25,6 +25,7 @@ import { Calf_report } from './pages/Calf/calf_report';
 import Calf_doctors from './pages/Calf/calf_doctors';
 import CalfTreatment from './pages/Calf/calf_treatment';
 import { Earthworm } from './pages/VermiCompost/earthworm';
+import { Calf_labour_payment } from './pages/Calf/calf_labour_payment';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -42,6 +43,7 @@ function App() {
         <Route element={<Calf_feed />} exact path='/calf/feed' />
         <Route element={<CalfLabour />} exact path='/calf/labour' />
         <Route element={<CalfLabour />} exact path='/calf/labour' />
+        <Route element={<Calf_labour_payment />} exact path='/calf/labour_payment' />
         <Route element={<Calf_selling />} exact path='/calf/selling' />
         <Route element={<Calf_customer />} exact path='/calf/customer' />
         <Route element={<Calf_report />} exact path='/calf/report' />

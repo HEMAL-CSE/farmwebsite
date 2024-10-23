@@ -51,6 +51,9 @@ const CalfTreatment = () => {
     const [selectedDoctors, setSelectedDoctors] = useState([])
     const [imageFiles, setImageFiles] = useState([])
 
+    const [calfImages, setCalfImages] = useState([])
+    const [treatment_desc, setTreatment_desc] = useState('')
+
     const [data, setData] = useState([])
 
     const isVideo = ['.mpg', '.mp2', '.mpeg', '.mpe', '.mpv', '.mp4']
@@ -61,27 +64,29 @@ const CalfTreatment = () => {
 
         axios.get(`http://68.178.163.174:5010/doctors/calf?farm_id=${farm_id}`).then(res => {
             // console.log(res.data);
-            
-            if(res.data.length >0 ){let results = res.data.reduce((obj, item) => {
-                let id = item.doctor_id
-                if (!obj.hasOwnProperty(id)) {
-                    obj[id] = []
-                }
-                obj[id].push(item)
 
-                return obj
-            }, {})
-            var x = Object.entries(results).map(([key, value]) => {
-                var data = {}
-                data[key] = value;
-                return data
-                
-            })
+            if (res.data.length > 0) {
+                let results = res.data.reduce((obj, item) => {
+                    let id = item.doctor_id
+                    if (!obj.hasOwnProperty(id)) {
+                        obj[id] = []
+                    }
+                    obj[id].push(item)
 
-            console.log(x);
-            
+                    return obj
+                }, {})
+                var x = Object.entries(results).map(([key, value]) => {
+                    var data = {}
+                    data[key] = value;
+                    return data
 
-            setData(x)}
+                })
+
+                console.log(x);
+
+
+                setData(x)
+            }
         })
     }
 
@@ -105,7 +110,7 @@ const CalfTreatment = () => {
         })
 
         axios.get(`http://68.178.163.174:5010/farm/info?owner_id=${owner_id}`).then(res => {
-            
+
             setFarm_id(res.data[0].id)
         })
 
@@ -129,19 +134,19 @@ const CalfTreatment = () => {
 
     const addData = (e) => {
         e.preventDefault()
-        
-        
+
+
         for (var i in doctors) {
-            
-            
+
+
             if (doctors[i].selected == true) {
-               
+
 
                 let formData = new FormData()
 
                 for (var j in imageFiles) {
                     console.log(imageFiles[j]);
-                    
+
                     formData.append('files', imageFiles[j])
                 }
                 formData.append('shed_id', shed_id)
@@ -152,7 +157,7 @@ const CalfTreatment = () => {
                 formData.append('doctor_id', doctors[i].doctor_id)
                 axios.post('http://68.178.163.174:5010/calf/treatment', formData).then(res => {
                     // console.log(res);
-                    
+
                     toast('Submitted')
                 })
             }
@@ -259,21 +264,22 @@ const CalfTreatment = () => {
 
                     />
                     <div className='d-flex flex-wrap'>
-                    {
-                        imageFiles.map(image => (
-                        
-                            <img className='m-2' width={100} src={URL.createObjectURL(image)} />
-                        ))
-                    }
-                    </div>
-                    
-                    <div>
-                        
+                        {
+                            imageFiles.map(image => (
+
+                                <img className='m-2' width={100} src={URL.createObjectURL(image)} />
+                            ))
+                        }
                     </div>
 
-                    <button onClick={(e) =>{
+                    <div>
+
+                    </div>
+
+                    <button onClick={(e) => {
                         e.preventDefault()
-                        setIsDoctorsOpen(true)}} className='button'>Send to doctors</button>
+                        setIsDoctorsOpen(true)
+                    }} className='button'>Send to doctors</button>
 
                 </form>
 
@@ -318,7 +324,7 @@ const CalfTreatment = () => {
                         }
 
                         <div className='details'>
-                        <button onClick={addData} className='button'>Submit</button>
+                            <button onClick={addData} className='button'>Submit</button>
 
                         </div>
 
@@ -343,39 +349,40 @@ const CalfTreatment = () => {
                                 <tr>
                                     <td>{calf[Object.keys(calf)[0]][0].calf_id}</td>
                                     <td>{Object.keys(calf)[0]}</td>
-                                        <td>{calf[Object.keys(calf)[0]][0].disease_desc}</td>
-                                        <td className='w-100'>
-                                            <div className='d-flex flex-wrap'>
-                                                {
-                                                  calf[Object.keys(calf)[0]][0].image_url != null && calf[Object.keys(calf)[0]][0].image_url != ''  
-                                                  ? calf[Object.keys(calf)[0]].map((el) => {
-                                                    if(checkVideo(el.image_url)  == false){
-                                                        return <img className='m-2' width={100} src={el.image_url} />
+                                    <td>{calf[Object.keys(calf)[0]][0].disease_desc}</td>
+                                    <td className='w-100'>
+                                        <div className='d-flex flex-wrap'>
+                                            {
+                                                calf[Object.keys(calf)[0]][0].image_url != null && calf[Object.keys(calf)[0]][0].image_url != ''
+                                                    ? calf[Object.keys(calf)[0]].map((el) => {
+                                                        if (checkVideo(el.image_url) == false) {
+                                                            return <img className='m-2' width={100} src={el.image_url} />
 
-                                                    }else {
-                                                        return <div></div>
-                                                    }
-                                                  }) : <div></div>
-                                                }
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button onClick={() => {
-                                                setEdit_calf_id(calf[Object.keys(calf)[0]][0].calf_id)
-                                                setEdit_shed_id(calf[Object.keys(calf)[0]][0].shed_id)
-                                                setEdit_seat_id(calf[Object.keys(calf)[0]][0].seat_id)
-                                                setEdit_id(calf[Object.keys(calf)[0]][0].id)
-                                                getSeats(calf[Object.keys(calf)[0]][0].shed_id)
-                                                getCalfs(calf[Object.keys(calf)[0]][0].shed_id, calf[Object.keys(calf)[0]][0].seat_id)
-                                                
-                                                setIsOpen(true)
-                                            }} className='btn btn-secondary mx-2'>
-                                                <BsEye />
-                                            </button>
-                                            <button onClick={e => deleteData(e, calf[Object.keys(calf)[0]][0].calf_id,Object.keys(calf)[0] )} className='btn btn-danger'>
-                                                <MdDelete />
-                                            </button>
-                                        </td>
+                                                        } else {
+                                                            return <div></div>
+                                                        }
+                                                    }) : <div></div>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => {
+                                            setEdit_calf_id(calf[Object.keys(calf)[0]][0].calf_id)
+                                            setEdit_shed_id(calf[Object.keys(calf)[0]][0].shed_id)
+                                            setEdit_seat_id(calf[Object.keys(calf)[0]][0].seat_id)
+                                            setEdit_id(calf[Object.keys(calf)[0]][0].id)
+                                            getSeats(calf[Object.keys(calf)[0]][0].shed_id)
+                                            getCalfs(calf[Object.keys(calf)[0]][0].shed_id, calf[Object.keys(calf)[0]][0].seat_id)
+                                            setTreatment_desc(calf[Object.keys(calf)[0]][0].treatment_desc)
+                                            setCalfImages(calf[Object.keys(calf)[0]])
+                                            setIsOpen(true)
+                                        }} className='btn btn-secondary mx-2'>
+                                            <BsEye />
+                                        </button>
+                                        <button onClick={e => deleteData(e, calf[Object.keys(calf)[0]][0].calf_id, Object.keys(calf)[0])} className='btn btn-danger'>
+                                            <MdDelete />
+                                        </button>
+                                    </td>
                                 </tr>
                             ))
                         }
@@ -404,7 +411,23 @@ const CalfTreatment = () => {
                         setIsOpen(false)
                     }}
                 >
-                    
+                    <div className='d-flex flex-wrap'>
+                        {
+                            calfImages.length > 0 &&
+                            calfImages.map((el) => {
+                                    if (checkVideo(el.image_url) == false) {
+                                        return <img className='m-2' width={300} src={el.image_url} />
+
+                                    } else {
+                                        return <div></div>
+                                    }
+                                }) 
+                        }
+                    </div>
+
+                    <div>
+                        <h3>{treatment_desc}</h3>
+                    </div>
                 </Modal>
 
             </div>
