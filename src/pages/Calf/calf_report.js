@@ -258,9 +258,6 @@ export const Calf_report = () => {
               <input value={edit_calf_id} onChange={e => setEdit_calf_id(e.target.value)} className='input' type='text'
   
               />
-  
-  
-  
               <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
   
             </form>
