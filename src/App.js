@@ -26,6 +26,12 @@ import Calf_doctors from './pages/Calf/calf_doctors';
 import CalfTreatment from './pages/Calf/calf_treatment';
 import { Earthworm } from './pages/VermiCompost/earthworm';
 import { Calf_labour_payment } from './pages/Calf/calf_labour_payment';
+import CowDelivery from './pages/Cow/CowDelivery';
+import CowFeed from './pages/Cow/CowFeed';
+import CowLabour from './pages/Cow/CowLabour';
+import CowLabourPayment from './pages/Cow/CowLabourPayment';
+import CowDoctors from './pages/Cow/CowDoctors';
+import CowTreatment from './pages/Cow/CowTreatment';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -57,6 +63,13 @@ function App() {
         <Route element={<Report/>} exact path='/report'/>
 
         <Route element={<Cowdetails/>} exact path='/cowdetails'/>
+        <Route element={<CowDelivery/>} exact path='/cow/delivery'/>
+        <Route element={<CowFeed/>} exact path='/cow/feed'/>
+        <Route element={<CowLabour/>} exact path='/cow/labour'/>
+        <Route element={<CowLabourPayment/>} exact path='/cow/labour_payment'/>
+        <Route element={<CowDoctors/>} exact path='/cow/doctors'/>
+        <Route element={<CowTreatment/>} exact path='/cow/treatment'/>
+        
         <Route element={<Calfdetails/>} exact path='/calfdetails'/>
         <Route element={<Login />} exact path='/login'/>
         <Route element={<Register />} exact path='/register' />

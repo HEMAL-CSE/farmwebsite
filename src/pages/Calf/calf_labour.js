@@ -203,6 +203,7 @@ const CalfLabour = () => {
                 borderRadius: "5px",
                 border: "1px solid #ccc",
               },
+              overlay: {zIndex: 10000}
             }}
             isOpen={isOpen}
             onRequestClose={() => {

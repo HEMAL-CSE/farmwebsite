@@ -248,6 +248,7 @@ export const Calf_selling = () => {
                 borderRadius: "5px",
                 border: "1px solid #ccc",
               },
+              overlay: {zIndex: 10000}
             }}
             isOpen={isOpen}
             onRequestClose={() => {

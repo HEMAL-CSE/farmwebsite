@@ -16,8 +16,8 @@ const Sidebar = ({ elements, name }) => {
     const { hash, pathname, search } = location;
     const navigator = useNavigate();
     return (
-        <div className='w-25'>
-            <div className='row'>
+        <div className='w-25 '>
+            <div className='row  sticky-top'>
                 <div className='w-100 bg-dark col-md-2 col-auto min-vh-100'>
                     <a className='text-decoration-none text-white d-none d-sm-inline d-flex align-items-center'>
                         <span className='ms-1 fs-4'>{name}</span>

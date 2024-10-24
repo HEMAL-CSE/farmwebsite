@@ -11,6 +11,7 @@ import { FaLessThanEqual } from 'react-icons/fa6';
 import { MdDelete } from 'react-icons/md';
 import { BiEdit } from 'react-icons/bi';
 import  Modal  from 'react-modal';
+import moment from 'moment';
 
 export const Cowdetails = () => {
   const [shed_id, setShed_id] = useState('')
@@ -124,7 +125,7 @@ export const Cowdetails = () => {
   return (
     <Cowlayout>
 
-      <div className='details'>
+      <div className='details d-flex flex-column justify-content-center align-items-center'>
         {/* <h2>Cow Purchase</h2> */}
         <div className="container-fluid px-5 d-none d-lg-block">
           <div className="row gx-5 py-3 align-items-center">
@@ -145,7 +146,7 @@ export const Cowdetails = () => {
           </div>
         </div>
 
-        <form onSubmit={addData}>
+        <form onSubmit={addData} className='w-50'>
 
           <label>Select Shed ID:</label>
           <select value={shed_id} onChange={e => {
@@ -241,11 +242,11 @@ export const Cowdetails = () => {
                   <td>{cow.cow_id}</td>
                   <td>{cow.shed_id}</td>
                   <td>{cow.seat_id}</td>
-                  <td>{cow.purchase_date}</td>
+                  <td>{moment(cow.purchase_date).format('DD/MM/yyyy')}</td>
                   <td>{cow.weight}</td>
-                  <td>{cow.pregnant}</td>
+                  <td>{cow.pregnant == '0' ? 'No': 'Yes'}</td>
                   <td>{cow.pregnant_month}</td>
-                  <td>{cow.supposed_delivery_date}</td>
+                  <td>{moment(cow.supposed_delivery_date).format('DD/MM/yyyy')}</td>
 
                   <td>
                     <button onClick={() => {
@@ -288,6 +289,7 @@ export const Cowdetails = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             },
+            overlay: {zIndex: 10000}
           }}
           isOpen={isOpen}
           onRequestClose={() => {
