@@ -89,7 +89,6 @@ function Farmar() {
           link="beeffatteninglayout"
         />
 
-        
         <Card
           imgSrc= {dairy}
           imgAlt="Card Image 3"
