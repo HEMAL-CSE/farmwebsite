@@ -97,7 +97,6 @@ export const Earthworm = () => {
         toast('Deleted')
       })
     }
-
     getData()
     
   }
@@ -162,7 +161,6 @@ export const Earthworm = () => {
           <button onClick={addData} className='button'>Submit</button>
 
         </form>
-
 
         <table className='table'>
           <thead>

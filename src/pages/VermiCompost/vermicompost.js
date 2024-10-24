@@ -85,11 +85,10 @@ const Vermicompost = ({children}) => {
       
       return (
         <div className='layout d-flex'>
-          <Sidebar className='calf' elements={sidebarElements} name={'Calf'} />
+          <Sidebar className='calf' elements={sidebarElements} name={'Vermicompost'} />
           <div className='ms-4 vw-100 d-flex justify-content-center'>
             {children}
           </div>
-          
         </div>
       )
 }
