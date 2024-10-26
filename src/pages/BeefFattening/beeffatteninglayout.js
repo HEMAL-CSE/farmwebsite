@@ -1,82 +1,123 @@
 import React from 'react'
-import './beeffatteninglayout.css'
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import './beeffattening.css'
+import { BsPeople, BsSpeedometer } from 'react-icons/bs'
+import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiHealth, BiMoney, BiPlus, BiSolidArrowToBottom } from 'react-icons/bi'
+import { FaCow, FaSeedling, FaUserDoctor } from 'react-icons/fa6'
+import { GiBottomRight3dArrow, GiDoctorFace } from 'react-icons/gi'
+import { MdReport } from 'react-icons/md'
+import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/collapse'
+import { CgArrowBottomLeft } from 'react-icons/cg'
+import { useLocation } from 'react-router-dom'
+import Sidebar from '../../Components/Sidebar'
 
+const BeefFatteningLayout = ({children}) => {
+    const sidebarElements = [
+        {
+            name: 'Purchase',
+            pathname: '/cowdetails',
+            icon: BiPlus,
+            submenu: []
+        },
+        
+        {
+            name: 'Delivery',
+            pathname: '/cow/delivery',
+            icon: FaCow,
+            submenu: []
+        },
+        {
+            name: 'Expenses',
+            pathname: '',
+            icon: BiMoney,
+            submenu: [
+                {
+                    name: 'Feed',
+                    pathname: '/cow/feed'
+                },
 
-export const BeefFatteningLayout = () => {
-  return (
-    <div className='details'>
-    {/* <h2>Cow Purchase</h2> */}
-    <div className="container-fluid px-5 d-none d-lg-block">
-            <div className="row gx-5 py-3 align-items-center">
-                <div className="col-lg-3">
-                    {/* <div className="d-flex align-items-center justify-content-start">
-                        <BsPhoneVibrate className='text-success2 fs-1 me-2' />
-                        <h2 className="mb-0">+012 345 6789</h2>
-                    </div> */}
-                </div>
-                <div className="col-lg-6">
-                    <div className="d-flex align-items-center justify-content-center">
-                        <a href="index.html" className="navbar-brand ms-lg-5">
-                            <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cow</span> Purchase</h1>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-      </div>
+                {
+                    name: 'Labour',
+                    pathname: '/cow/labour'
+                },
 
-<form>
+                {
+                    name: 'Labour Payment',
+                    pathname: '/cow/labour_payment'
+                },
+                {
+                    name: 'Others',
+                    pathname: '/cow/others'
+                },
+                {
+                    name: 'Others Payment',
+                    pathname: '/cow/others_payment'
+                }
+            ]
+        },
 
-<label>Select Shed ID:</label>
-<select className='select' >
-<option value={'shed1'}>Shed1</option>
-<option value={'shed2'}>Shed2</option>
-<option value={'shed3'}>Shed3</option>
-</select>
+        {
+            name: 'Treatment',
+            pathname: '',
+            icon: FaUserDoctor,
+            submenu: [
+                {
+                    name: 'Doctors',
+                    pathname: '/cow/doctors'
+                },
+                {
+                    name: 'Treatment',
+                    pathname: '/cow/treatment'
+                }
+            ]
+        },
 
-<label>Select Shed ID:</label>
-<input className='input' type='text'
-required
-/>
+        {
+            name: 'Selling',
+            pathname: '/cow/selling',
+            icon: BiMoney,
+            submenu: []
+        },
 
-<label>Select Seat ID:</label>
-<textarea
-required
-></textarea>
-<label>Select Cow ID:</label>
-<select className='select'>
-<option value={'cow1'}>Cow1</option>
-<option value={'cow2'}>Cow2</option>
-<option value={'cow3'}>Cow3</option>
-</select>
-
-<label>Select Date:</label>
-
-<div style={{ textAlign: 'left',
-  width: '100%', 
-  // border: '1px solid #ccc',
-  padding: '0px',
-  marginTop: '6px',
-  }}> {/* Aligns content to the left */}
-  {/* <label>Select Date:</label> */}
-  <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DatePicker
-      // value={value}
-      // onChange={(newValue) => setValue(newValue)}
-      // renderInput={(params) => <input {...params} />}
-    />
-  </LocalizationProvider>
-</div>
-
-<button className='button'>Submit</button>
-
-</form>
-
-
-</div>
-  )
+        {
+            name: 'Healthcare',
+            pathname: '',
+            icon: BiHealth,
+            submenu: [
+                {
+                    name: 'Vaccines',
+                    pathname: '/cow/vaccines'
+                },
+                {
+                    name: 'Medicine',
+                    pathname: '/cow/medicine'
+                }
+            ]
+        },
+        {
+            name: 'Feeding',
+            pathname: '/cow/feeding',
+            icon: FaSeedling,
+            submenu: []
+        },
+        {
+            name: 'Report',
+            pathname: '/cow/report',
+            icon: MdReport,
+            submenu: []
+        }
+        
+      ]
+      
+      return (
+        <div className='layout d-flex'>
+          <Sidebar className='calf' elements={sidebarElements} name={'Cow'} />
+          <div className='ms-4 vw-100 d-flex justify-content-center'>
+            {children}
+          </div>
+          
+        </div>
+      )
 }
+
+export default BeefFatteningLayout

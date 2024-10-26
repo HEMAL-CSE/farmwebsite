@@ -43,7 +43,6 @@ function App() {
         <Route element={<Farmar/>} exact path='/farmar'/>
         <Route element={<Cow/>} exact path='/cow'/>
         {/* <Route element={<CowLayout/>} exact path='/cow'/> */}
-        <Route element={<BeefFatteningLayout/>} exact path='/beeffatteninglayout'/>
         <Route element={<Calf/>} exact path='/calf/birth_info'/>
         <Route element={<Calf_feed />} exact path='/calf/feed' />
         <Route element={<CalfLabour />} exact path='/calf/labour' />
