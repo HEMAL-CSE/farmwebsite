@@ -104,7 +104,7 @@ function Farmar() {
           title="VermiCompost"
           description="This is the card description section. You can add more details about the product here"
           buttonText="Click Here"
-          link="vermicompost/earthworm"
+          link="vermicompost/earthworm_prod"
         />
 
     <Card
