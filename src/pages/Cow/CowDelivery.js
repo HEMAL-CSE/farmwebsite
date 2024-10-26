@@ -179,7 +179,7 @@ const CowDelivery = () => {
                         {
                             cows.map(shed => (
 
-                                <option value={shed.id}>{shed.cow_id}</option>
+                                <option value={shed.cow_id}>{shed.cow_id}</option>
                             ))
                         }
                     </select>
@@ -315,7 +315,7 @@ const CowDelivery = () => {
                         {
                             cows.map(shed => (
 
-                                <option value={shed.id}>{shed.cow_id}</option>
+                                <option value={shed.cow_id}>{shed.cow_id}</option>
                             ))
                         }
                     </select>

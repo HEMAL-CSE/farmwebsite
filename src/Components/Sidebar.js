@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
 import { BsPeople, BsSpeedometer } from 'react-icons/bs'
-import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiMoney, BiSolidArrowToBottom } from 'react-icons/bi'
+import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiHome, BiMoney, BiSolidArrowToBottom } from 'react-icons/bi'
 import { FaCow, FaUserDoctor } from 'react-icons/fa6'
 import { GiBottomRight3dArrow, GiDoctorFace } from 'react-icons/gi'
 import { MdReport } from 'react-icons/md'
@@ -24,6 +24,12 @@ const Sidebar = ({ elements, name }) => {
                     </a>
                     <hr className='text-secondary' />
                     <ul className='nav nav-pills flex-column' id='parentM'>
+                        <li className='nav-item text-white fs-4 my-1'>
+                            <a href='/farmar' className={`nav-link text-white`}>
+                                <BiHome />
+                                <span className='ms-2 d-none d-sm-inline'>Home</span>
+                            </a>
+                        </li>
                         {
                             elements.map(element => (
                                 <li  onClick={ () => {
