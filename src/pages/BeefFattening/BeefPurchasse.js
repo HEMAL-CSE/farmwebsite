@@ -10,7 +10,7 @@ import { MdDelete } from 'react-icons/md';
 import { BiEdit } from 'react-icons/bi';
 import  Modal  from 'react-modal';
 import moment from 'moment';
-import { Milklayout } from './milklayout';
+import BeefFatteningLayout from './beeffatteninglayout';
 const BeefPurchasse = () => {
     const [shed_id, setShed_id] = useState('')
     const [seat_id, setSeat_id] = useState('')
@@ -101,7 +101,7 @@ const BeefPurchasse = () => {
   
   
     return (
-      <Milklayout>
+      <BeefFatteningLayout>
   
         <div className='details d-flex flex-column justify-content-center align-items-center'>
           {/* <h2>Cow Purchase</h2> */}
@@ -290,7 +290,7 @@ const BeefPurchasse = () => {
           </Modal>
   
         </div>
-      </Milklayout>
+      </BeefFatteningLayout>
   
     )
 }
