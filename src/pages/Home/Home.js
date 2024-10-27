@@ -41,7 +41,7 @@ const Home = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h1 className="m-0 display-4 text-success2"><span className="text-secondary">Farm</span>Management</h1>
+                                <h1 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span>Management</h1>
                             </a>
                         </div>
                     </div>
@@ -52,13 +52,9 @@ const Home = () => {
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook /></a>
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin /></a>
                             <a className="btn btn-success2 btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube /></a>
-                        
-                            
                         </div>
                         
-                    </div>
-                    
-                    
+                    </div> 
                 </div>
             </div>
             {/* <!-- Topbar End --> */}
@@ -74,10 +70,10 @@ const Home = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav mx-auto py-0">
-                        <a href="index.html" className="nav-item nav-link active">Home</a>
-                        <a href="about.html" className="nav-item nav-link">About</a>
-                        <a href="service.html" className="nav-item nav-link">Service</a>
-                        <a href="product.html" className="nav-item nav-link">Product</a>
+                        <a href="#" className="nav-item nav-link active">Home</a>
+                        <a href="#" className="nav-item nav-link">About</a>
+                        <a href="#" className="nav-item nav-link">Service</a>
+                        <a href="#" className="nav-item nav-link">Product</a>
                         <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
