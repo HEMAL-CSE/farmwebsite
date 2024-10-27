@@ -15,17 +15,11 @@ const BeefFatteningLayout = ({children}) => {
     const sidebarElements = [
         {
             name: 'Purchase',
-            pathname: '/cowdetails',
+            pathname: '/beef/purchase',
             icon: BiPlus,
             submenu: []
         },
         
-        {
-            name: 'Delivery',
-            pathname: '/cow/delivery',
-            icon: FaCow,
-            submenu: []
-        },
         {
             name: 'Expenses',
             pathname: '',
@@ -33,25 +27,25 @@ const BeefFatteningLayout = ({children}) => {
             submenu: [
                 {
                     name: 'Feed',
-                    pathname: '/cow/feed'
+                    pathname: '/beef/feed'
                 },
 
                 {
                     name: 'Labour',
-                    pathname: '/cow/labour'
+                    pathname: '/beef/labour'
                 },
 
                 {
                     name: 'Labour Payment',
-                    pathname: '/cow/labour_payment'
+                    pathname: '/beef/labour_payment'
                 },
                 {
                     name: 'Others',
-                    pathname: '/cow/others'
+                    pathname: '/beef/others'
                 },
                 {
                     name: 'Others Payment',
-                    pathname: '/cow/others_payment'
+                    pathname: '/beef/others_payment'
                 }
             ]
         },
@@ -63,18 +57,25 @@ const BeefFatteningLayout = ({children}) => {
             submenu: [
                 {
                     name: 'Doctors',
-                    pathname: '/cow/doctors'
+                    pathname: '/beef/doctors'
                 },
                 {
                     name: 'Treatment',
-                    pathname: '/cow/treatment'
+                    pathname: '/beef/treatment'
                 }
             ]
         },
 
         {
-            name: 'Selling',
-            pathname: '/cow/selling',
+            name: 'Slaughter',
+            pathname: '/beef/slaughter',
+            icon: BiMoney,
+            submenu: []
+        },
+
+        {
+            name: 'Customer',
+            pathname: '/beef/customer',
             icon: BiMoney,
             submenu: []
         },
@@ -86,23 +87,23 @@ const BeefFatteningLayout = ({children}) => {
             submenu: [
                 {
                     name: 'Vaccines',
-                    pathname: '/cow/vaccines'
+                    pathname: '/beef/vaccines'
                 },
                 {
                     name: 'Medicine',
-                    pathname: '/cow/medicine'
+                    pathname: '/beef/medicine'
                 }
             ]
         },
         {
             name: 'Feeding',
-            pathname: '/cow/feeding',
+            pathname: '/beef/feeding',
             icon: FaSeedling,
             submenu: []
         },
         {
             name: 'Report',
-            pathname: '/cow/report',
+            pathname: '/beef/report',
             icon: MdReport,
             submenu: []
         }
@@ -111,7 +112,7 @@ const BeefFatteningLayout = ({children}) => {
       
       return (
         <div className='layout d-flex'>
-          <Sidebar className='calf' elements={sidebarElements} name={'Cow'} />
+          <Sidebar className='calf' elements={sidebarElements} name={'Beef Fattening'} />
           <div className='ms-4 vw-100 d-flex justify-content-center'>
             {children}
           </div>
