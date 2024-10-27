@@ -86,7 +86,7 @@ function Farmar() {
           title="Beef Fattening"
           description="This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information"
           buttonText="Click Here"
-          link="beeffatteninglayout"
+          link="beef/purchase"
         />
 
         <Card

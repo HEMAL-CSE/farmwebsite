@@ -65,6 +65,7 @@ import MilkVaccines from './pages/Milk/MilkVaccines';
 import MilkMedicines from './pages/Milk/MilkMedicines';
 import MilkFeeding from './pages/Milk/MilkFeeding';
 import MilkCustomer from './pages/Milk/MilkCustomer';
+import BeefPurchasse from './pages/BeefFattening/BeefPurchasse';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -140,6 +141,8 @@ function App() {
         <Route element={<CowVaccines/>} exact path='/cow/vaccines'/>
         <Route element={<CowMedicines/>} exact path='/cow/medicine'/>
         <Route element={<CowFeeding/>} exact path='/cow/feeding'/>
+
+        <Route element={<BeefPurchasse />} exact path='/beef/purchase' />
         
         <Route element={<Calfdetails/>} exact path='/calfdetails'/>
         <Route element={<Login />} exact path='/login'/>
