@@ -17,10 +17,9 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import Vermicompost from './vermicompost'
 import moment from 'moment'
-
-const EarthwomOthersPayment = () => {
+import { Milklayout } from './milklayout'
+const MilkOthersPayment = () => {
     const [other, setOther] = useState('')
     const [amount, setAmount] = useState('')
     const [date, setDate] = useState('')
@@ -37,14 +36,14 @@ const EarthwomOthersPayment = () => {
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5010/vermi_compost/earthworm_others_payment').then(res => {
+        axios.get('http://68.178.163.174:5010/dairy/expenses/other_payment').then(res => {
             setData(res.data)
         })
     }
 
     useEffect(() => {
 
-        axios.get(`http://68.178.163.174:5010/vermi_compost/earthworm_others`)
+        axios.get(`http://68.178.163.174:5010/dairy/expenses/other`)
             .then(res => {
                 setOthers(res.data)
             })
@@ -57,9 +56,9 @@ const EarthwomOthersPayment = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/add', {
+        axios.post('http://68.178.163.174:5010/dairy/expenses/other_payment/add', {
             others_id: other,
-            amount,
+            payment: amount,
             date,
         }).then(res => {
             toast('Submitted')
@@ -70,9 +69,9 @@ const EarthwomOthersPayment = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/edit?id=${id}`, {
+        axios.put(`http://68.178.163.174:5010/dairy/expenses/other_payment/edit?id=${id}`, {
             others_id: edit_others,
-            amount: edit_amount,
+            payment: edit_amount,
             date: edit_date
         })
             .then(res => {
@@ -88,7 +87,7 @@ const EarthwomOthersPayment = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/dairy/expenses/other_payment/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -101,7 +100,7 @@ const EarthwomOthersPayment = () => {
     }
 
     return (
-        <Vermicompost>
+        <Milklayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -115,7 +114,7 @@ const EarthwomOthersPayment = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Earthworm Others</span> Payment</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2"> Others</span> Payment</h1>
                                 </a>
                             </div>
                         </div>
@@ -263,8 +262,8 @@ const EarthwomOthersPayment = () => {
                 </Modal>
 
             </div>
-        </Vermicompost>
+        </Milklayout>
     )
 }
 
-export default EarthwomOthersPayment
+export default MilkOthersPayment

@@ -1,5 +1,4 @@
 import React from 'react'
-import './cow.css'
 import { BsPeople, BsSpeedometer } from 'react-icons/bs'
 import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiHealth, BiMoney, BiPlus, BiSolidArrowToBottom } from 'react-icons/bi'
 import { FaCow, FaSeedling, FaUserDoctor } from 'react-icons/fa6'
@@ -89,7 +88,7 @@ export const Milklayout = ({children}) => {
             },
             {
                 name: 'Medicine',
-                pathname: '/milk/medicine'
+                pathname: '/milk/medicines'
             }
         ]
     },
@@ -110,7 +109,7 @@ export const Milklayout = ({children}) => {
   
   return (
     <div className='layout d-flex'>
-      <Sidebar className='calf' elements={sidebarElements} name={'Cow'} />
+      <Sidebar className='calf' elements={sidebarElements} name={'Dairy'} />
       <div className='ms-4 vw-100 d-flex justify-content-center'>
         {children}
       </div>

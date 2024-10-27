@@ -52,6 +52,19 @@ import EarthwomOthersPayment from './pages/VermiCompost/EarthwomOthersPayment';
 import VermicompostCustomers from './pages/VermiCompost/VermicompostCustomers';
 import VermicompostSellingInfo from './pages/VermiCompost/VermicompostSellingInfo';
 import VermicompostProduction from './pages/VermiCompost/VermicompostProduction';
+import MilkPurchase from './pages/Milk/MilkPurchase';
+import MilkProduction from './pages/Milk/MilkProduction';
+import MilkFeed from './pages/Milk/MilkFeed';
+import MilkLabour from './pages/Milk/MilkLabour';
+import MilkLabourPayment from './pages/Milk/MilkLabourPayment';
+import MilkOthers from './pages/Milk/MilkOthers';
+import MilkOthersPayment from './pages/Milk/MilkOthersPayment';
+import MilkDoctors from './pages/Milk/MilkDoctors';
+import MilkTreatment from './pages/Milk/MilkTreatment';
+import MilkVaccines from './pages/Milk/MilkVaccines';
+import MilkMedicines from './pages/Milk/MilkMedicines';
+import MilkFeeding from './pages/Milk/MilkFeeding';
+import MilkCustomer from './pages/Milk/MilkCustomer';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -77,6 +90,20 @@ function App() {
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}
         <Route element={<Milk/>} exact path='/milk'/>
+        <Route element={<MilkPurchase />} exact path='/milk/purchase' />
+        <Route element={<MilkProduction />} exact path='/milk/production' />
+        <Route element={<MilkFeed />} exact path='/milk/feed' />
+        <Route element={<MilkLabour />} exact path='/milk/labour' />
+        <Route element={<MilkLabourPayment />} exact path='/milk/labour_payment' />
+        <Route element={<MilkOthers />} exact path='/milk/others' />
+        <Route element={<MilkOthersPayment />} exact path='/milk/others_payment' />
+        <Route element={<MilkDoctors />} exact path='/milk/doctors' />
+        <Route element={<MilkTreatment />} exact path='/milk/treatment' />
+        <Route element={<MilkVaccines />} exact path='/milk/vaccines' />
+        <Route element={<MilkMedicines />} exact path='/milk/medicines' />
+        <Route element={<MilkFeeding />} exact path='/milk/feeding' />
+        <Route element={<MilkCustomer />} exact path='/milk/customers' />
+        
         {/* <Route element={<Vermicompost/>} exact path='/vermicompost'/> */}
         
         <Route element={<VermicompostCustomers/>} exact path='/vermicompost/customers'/>

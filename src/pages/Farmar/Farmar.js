@@ -95,7 +95,7 @@ function Farmar() {
           title="Milk"
           description="This is the card description section. You can add more details about the product here"
           buttonText="Click Here"
-          link="milk"
+          link="milk/purchase"
         />
 
       <Card

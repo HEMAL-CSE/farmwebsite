@@ -17,8 +17,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import Cowlayout from './Cowlayout'
-const CowTreatment = () => {
+import { Milklayout } from './milklayout'
+const MilkTreatment = () => {
     const [shed_id, setShed_id] = useState('')
     const [seat_id, setSeat_id] = useState('')
     const [cow_id, setCow_id] = useState('')
@@ -61,7 +61,7 @@ const CowTreatment = () => {
 
         let farm_id = localStorage.getItem('farm_id')
 
-        axios.get(`http://68.178.163.174:5010/doctors/breeding?farm_id=${farm_id}`).then(res => {
+        axios.get(`http://68.178.163.174:5010/doctors/dairy?farm_id=${farm_id}`).then(res => {
             // console.log(res.data);
 
             if (res.data.length > 0) {
@@ -99,7 +99,7 @@ const CowTreatment = () => {
         axios.get(`http://68.178.163.174:5010/breeding/sheds`).then(res => {
             setSheds(res.data)
         })
-        axios.get('http://68.178.163.174:5010/breeding/doctors').then(res => {
+        axios.get('http://68.178.163.174:5010/dairy/doctors').then(res => {
             var results = res.data.map(item => {
                 item.selected = false;
                 return item;
@@ -125,7 +125,7 @@ const CowTreatment = () => {
     }
 
     const getCows = (shed_id, seat_id) => {
-        axios.get(`http://68.178.163.174:5010/breeding/cows?shed_id=${shed_id}&&seat_id=${seat_id}`)
+        axios.get(`http://68.178.163.174:5010/dairy/dairy_cows?shed_id=${shed_id}&&seat_id=${seat_id}`)
             .then(res => {
                 setCows(res.data)
             })
@@ -154,7 +154,7 @@ const CowTreatment = () => {
                 formData.append('disease_desc', diseases_description)
                 formData.append('farm_id', farm_id)
                 formData.append('doctor_id', doctors[i].doctor_id)
-                axios.post('http://68.178.163.174:5010/breeding/treatment', formData).then(res => {
+                axios.post('http://68.178.163.174:5010/dairy/treatment', formData).then(res => {
                     // console.log(res);
                     getData()
 
@@ -172,7 +172,7 @@ const CowTreatment = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/breeding/treatment/delete?cow_id=${cow_id}&doctor_id=${doctor_id}`)
+            axios.delete(`http://68.178.163.174:5010/dairy/treatment/delete?cow_id=${cow_id}&doctor_id=${doctor_id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -188,7 +188,7 @@ const CowTreatment = () => {
     }
 
     return (
-        <Cowlayout>
+        <Milklayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -202,7 +202,7 @@ const CowTreatment = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cow</span> Treatment</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Dairy</span> Treatment</h1>
                                 </a>
                             </div>
                         </div>
@@ -433,8 +433,8 @@ const CowTreatment = () => {
                 </Modal>
 
             </div>
-        </Cowlayout>
+        </Milklayout>
     )
 }
 
-export default CowTreatment
+export default MilkTreatment

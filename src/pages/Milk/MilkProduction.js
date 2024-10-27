@@ -11,25 +11,24 @@ import { BiEdit } from 'react-icons/bi';
 import  Modal  from 'react-modal';
 import moment from 'moment';
 import { Milklayout } from './milklayout';
-const MilkPurchase = () => {
+const MilkProduction = () => {
     const [shed_id, setShed_id] = useState('')
     const [seat_id, setSeat_id] = useState('')
     const [cow_id, setCow_id] = useState('')
-    const [purchase_date, setPurchase_date] = useState('')
-    const [price, setPrice] = useState('')
-    const [weight, setWeight] = useState('')
+    const [date, setDate] = useState('')
+    const [amount, setAmount] = useState('')
     const[isOpen, setIsOpen] = useState(false)
   
     const [edit_id, setEdit_id] = useState('')
     const [edit_shed_id, setEdit_shed_id] = useState('')
     const [edit_seat_id, setEdit_seat_id] = useState('')
     const [edit_cow_id, setEdit_cow_id] = useState('')
-    const [edit_purchase_date, setEdit_purchase_date] = useState('')
-    const [edit_price, setEdit_price] = useState('')
-    const [edit_weight, setEdit_weight] = useState('')
+    const [edit_date, setEdit_date] = useState('')
+    const [edit_amount, setEdit_amount] = useState('')
 
     const [sheds, setSheds] = useState([])
     const [seats, setSeats] = useState([])
+    const [cows, setCows] = useState([])
 
     const [data, setData] = useState([])
   
@@ -47,9 +46,16 @@ const MilkPurchase = () => {
           setSeats(res.data)
         })
     }
+
+    const getCows = (id) => {
+        axios.get(`http://68.178.163.174:5010/dairy/dairy_cows?seat_id=${id}`)
+          .then(res => {
+            setCows(res.data)
+          })
+      }
   
     const getData = () => {
-      axios.get('http://68.178.163.174:5010/dairy/dairy_cows')
+      axios.get('http://68.178.163.174:5010/dairy/production')
         .then(res => {
           setData(res.data)
         })
@@ -57,13 +63,12 @@ const MilkPurchase = () => {
   
     const addData = (e) => {
       e.preventDefault()
-      axios.post('http://68.178.163.174:5010/dairy/dairy_cows/add', {
+      axios.post('http://68.178.163.174:5010/dairy/production/add', {
         shed_id,
         seat_id,
         cow_id,
-        purchase_date,
-        purchase_price: price,
-        weight,
+        date,
+        amount
 
       }).then(res => {
         toast('Submitted')
@@ -74,13 +79,12 @@ const MilkPurchase = () => {
     const editData = (e) => {
       e.preventDefault()
   
-      axios.put(`http://68.178.163.174:5010/dairy/dairy_cows/edit?id=${edit_id}`, {
+      axios.put(`http://68.178.163.174:5010/dairy/production/edit?id=${edit_id}`, {
         shed_id: edit_shed_id,
         seat_id: edit_seat_id,
         cow_id: edit_cow_id,
-        purchase_date: edit_purchase_date,
-        purchase_price: edit_price,
-        weight: edit_weight,
+        date: edit_date,
+        amount: edit_amount
   
       })
         .then(res => {
@@ -93,7 +97,7 @@ const MilkPurchase = () => {
     const deleteData = (e, id) => {
       e.preventDefault()
   
-      axios.delete(`http://68.178.163.174:5010/dairy/dairy_cows/delete?id=${id}`)
+      axios.delete(`http://68.178.163.174:5010/dairy/production/delete?id=${id}`)
         .then(res => {
           toast('Deleted')
         })
@@ -116,7 +120,7 @@ const MilkPurchase = () => {
               <div className="col-lg-6">
                 <div className="d-flex align-items-center justify-content-center">
                   <a href="index.html" className="navbar-brand ms-lg-5">
-                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Milk</span> Purchase</h1>
+                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Milk</span> Production</h1>
                   </a>
                 </div>
               </div>
@@ -143,6 +147,7 @@ const MilkPurchase = () => {
             <label>Select Seat ID:</label>
             <select value={seat_id} onChange={e => {
               setSeat_id(e.target.value)
+              getCows(e.target.value)
             }} className='select' >
               <option >Select</option>
               {
@@ -153,20 +158,27 @@ const MilkPurchase = () => {
               }
             </select>
   
-            <label>Cow ID</label>
-            <input className='input' value={cow_id} onChange={e => setCow_id(e.target.value)} />
+            <label>Select Cow ID:</label>
+            <select value={cow_id} onChange={e => {
+              setCow_id(e.target.value)
+            }} className='select' >
+              <option >Select</option>
+              {
+                cows.map(shed => (
   
-            <label>Select Purchse Date:</label>
+                  <option value={shed.id}>{shed.cow_id}</option>
+                ))
+              }
+            </select>
+            <label>Select  Date:</label>
             <input className='input' type='date' onChange={e => {
-              setPurchase_date(e.target.value)
+              setDate(e.target.value)
             }} />
   
-            <label>Milk Price</label>
-            <input className='input' value={price} onChange={e => setPrice(e.target.value)} />
+            <label>Milk Amount</label>
+            <input className='input' value={amount} onChange={e => setAmount(e.target.value)} />
   
-            <label>Milk Weight</label>
-            <input className='input' value={weight} onChange={e => setWeight(e.target.value)} />
-  
+           
         
   
             <button type='submit' className='button'>Submit</button>
@@ -178,8 +190,8 @@ const MilkPurchase = () => {
                 <th scope='col'>Cow ID</th>
                 <th scope='col'> Shed ID</th>
                 <th scope='col'>Seat ID</th>
-                <th scope='col'>Purchase Date</th>
-                <th scope='col'>Weight</th>
+                <th scope='col'> Date</th>
+                <th scope='col'>Amount</th>
     
                 <th scope='col'>Edit/Delete</th>
   
@@ -192,8 +204,8 @@ const MilkPurchase = () => {
                     <td>{cow.cow_id}</td>
                     <td>{cow.shed_id}</td>
                     <td>{cow.seat_id}</td>
-                    <td>{moment(cow.purchase_date).format('DD/MM/yyyy')}</td>
-                    <td>{cow.weight}</td>
+                    <td>{moment(cow.date).format('DD/MM/yyyy')}</td>
+                    <td>{cow.amount}</td>
                 
                     <td>
                       <button onClick={() => {
@@ -201,8 +213,10 @@ const MilkPurchase = () => {
                         setEdit_seat_id(cow.seat_id)
                         setEdit_id(cow.id)
                         setEdit_cow_id(cow.cow_id)
-                        setEdit_purchase_date(cow.purchase_date)
-                        setEdit_price(cow.price)
+                        setEdit_date(cow.date)
+                        getSeats(cow.shed_id)
+                        getCows(cow.seat_id)
+                        setEdit_amount(cow.amount)
                          setIsOpen(true)
                       }} className='btn btn-secondary mx-2'>
                         <BiEdit />
@@ -269,19 +283,25 @@ const MilkPurchase = () => {
               }
             </select>
   
-            <label>Cow ID</label>
-            <input className='input' value={cow_id} onChange={e => setCow_id(e.target.value)} />
+            <label>Select Cow ID:</label>
+            <select value={edit_cow_id} onChange={e => {
+              setEdit_cow_id(e.target.value)
+            }} className='select' >
+              <option >Select</option>
+              {
+                cows.map(shed => (
   
-            <label>Select Purchse Date:</label>
+                  <option value={shed.id}>{shed.cow_id}</option>
+                ))
+              }
+            </select>
+            <label>Select Date:</label>
             <input className='input' type='date' onChange={e => {
-              setEdit_purchase_date(e.target.value)
+              setEdit_date(e.target.value)
             }} />
   
-            <label>Cow Price</label>
-            <input className='input' value={price} onChange={e => setPrice(e.target.value)} />
-  
-            <label>Cow Weight</label>
-            <input className='input' value={weight} onChange={e => setWeight(e.target.value)} />
+            <label>Milk Amount</label>
+            <input className='input' value={edit_amount} onChange={e => setEdit_amount(e.target.value)} />
   
         
               <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
@@ -295,4 +315,4 @@ const MilkPurchase = () => {
     )
 }
 
-export default MilkPurchase
+export default MilkProduction

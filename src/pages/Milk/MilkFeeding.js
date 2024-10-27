@@ -17,38 +17,27 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import Vermicompost from './vermicompost'
-import moment from 'moment'
-
-const EarthwomOthersPayment = () => {
-    const [other, setOther] = useState('')
-    const [amount, setAmount] = useState('')
-    const [date, setDate] = useState('')
+import { Milklayout } from './milklayout'
+const MilkFeeding = () => {
+    const [name, setName] = useState('')
 
 
+
+    const [editName, setEditName] = useState('')
     const [edit_id, setEdit_id] = useState('')
-    const [edit_others, setEdit_others] = useState('')
-    const [edit_amount, setEdit_amount] = useState('')
-    const [edit_date, setEdit_date] = useState('')
 
     const [isOpen, setIsOpen] = useState(false)
 
-    const [others, setOthers] = useState([])
+
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5010/vermi_compost/earthworm_others_payment').then(res => {
+        axios.get('http://68.178.163.174:5010/dairy/feed_names').then(res => {
             setData(res.data)
         })
     }
 
     useEffect(() => {
-
-        axios.get(`http://68.178.163.174:5010/vermi_compost/earthworm_others`)
-            .then(res => {
-                setOthers(res.data)
-            })
-
         getData()
 
     }, [])
@@ -57,10 +46,8 @@ const EarthwomOthersPayment = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/add', {
-            others_id: other,
-            amount,
-            date,
+        axios.post('http://68.178.163.174:5010/dairy/feed_names/add', {
+            name,
         }).then(res => {
             toast('Submitted')
             getData()
@@ -70,10 +57,8 @@ const EarthwomOthersPayment = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/edit?id=${id}`, {
-            others_id: edit_others,
-            amount: edit_amount,
-            date: edit_date
+        axios.put(`http://68.178.163.174:5010/dairy/feed_names/edit?id=${id}`, {
+            name: editName,
         })
             .then(res => {
                 getData()
@@ -88,7 +73,7 @@ const EarthwomOthersPayment = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/vermi_compost/earthworm_others_payment/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/dairy/feed_names/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -101,7 +86,7 @@ const EarthwomOthersPayment = () => {
     }
 
     return (
-        <Vermicompost>
+        <Milklayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -115,7 +100,7 @@ const EarthwomOthersPayment = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Earthworm Others</span> Payment</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Dairy</span> Feeding</h1>
                                 </a>
                             </div>
                         </div>
@@ -132,30 +117,12 @@ const EarthwomOthersPayment = () => {
 
 
 
-                    <label>Date:</label>
-                    <input value={date} onChange={e => setDate(e.target.value)} className='input' type='date'
+                    <label>Name:</label>
+                    <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
 
                     />
-                
 
-                    <label>Select Others:</label>
-                    <select value={other} onChange={e => {
-                        setOther(e.target.value)
-                    }} className='select' >
-                        <option >Select</option>
-                        {
-                            others.map(shed => (
-
-                                <option value={shed.id}>{shed.name}</option>
-                            ))
-                        }
-                    </select>
-
-                
-                    <label>Amount:</label>
-                    <input value={amount} onChange={e => setAmount(e.target.value)} className='input' type='text'
-
-                    />
+                  
 
                     <button onClick={addData} className='button'>Submit</button>
 
@@ -165,9 +132,8 @@ const EarthwomOthersPayment = () => {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th scope='col'>Others ID</th>
-                            <th scope='col'>Amount</th>
-                            <th scope='col'>Date</th>
+                            <th scope='col'>Name</th>
+
                             <th scope='col'>Edit/Delete</th>
 
                         </tr>
@@ -176,18 +142,13 @@ const EarthwomOthersPayment = () => {
                         {
                             data.map(calf => (
                                 <tr>
-                                    <td>{calf.others_id}</td>
-                                    <td>{calf.amount} BDT</td>
-                                    <td>{moment(calf.date).format('DD/MM/yyyy')}</td>
-
+                                    <td>{calf.name}</td>
 
                                     <td>
                                         <button onClick={() => {
 
+                                            setEditName(calf.name)
                                             setEdit_id(calf.id)
-                                            setEdit_amount(calf.amount)
-                                            setEdit_others(calf.others_id)
-                                            setEdit_date(calf.date)
                                             setIsOpen(true)
                                         }} className='btn btn-secondary mx-2'>
                                             <BiEdit />
@@ -228,32 +189,12 @@ const EarthwomOthersPayment = () => {
                 >
                     <form className='details'>
 
-                    <label>Date:</label>
-                    <input value={edit_date} onChange={e => setEdit_date(e.target.value)} className='input' type='date'
-
-                    />
-                
-
-                    <label>Select Others:</label>
-                    <select value={edit_others} onChange={e => {
-                        setEdit_others(e.target.value)
-                    }} className='select' >
-                        <option >Select</option>
-                        {
-                            others.map(shed => (
-
-                                <option value={shed.id}>{shed.name}</option>
-                            ))
-                        }
-                    </select>
-
-                
-                    <label>Amount:</label>
-                    <input value={edit_amount} onChange={e => setEdit_amount(e.target.value)} className='input' type='text'
+                    <label> Name:</label>
+                    <input value={editName} onChange={e => setEditName(e.target.value)} className='input' type='text'
 
                     />
 
-
+                   
 
 
 
@@ -263,8 +204,8 @@ const EarthwomOthersPayment = () => {
                 </Modal>
 
             </div>
-        </Vermicompost>
+        </Milklayout>
     )
 }
 
-export default EarthwomOthersPayment
+export default MilkFeeding
