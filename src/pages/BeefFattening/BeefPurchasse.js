@@ -116,7 +116,7 @@ const BeefPurchasse = () => {
               <div className="col-lg-6">
                 <div className="d-flex align-items-center justify-content-center">
                   <a href="index.html" className="navbar-brand ms-lg-5">
-                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Milk</span> Purchase</h1>
+                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Beef</span> Purchase</h1>
                   </a>
                 </div>
               </div>

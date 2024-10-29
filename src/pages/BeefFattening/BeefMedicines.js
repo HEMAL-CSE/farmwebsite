@@ -17,18 +17,16 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import { Milklayout } from './milklayout'
-const MilkCustomer = () => {
+import BeefFatteningLayout from './beeffatteninglayout'
+const BeefMedicines = () => {
     const [name, setName] = useState('')
-    const [address, setAddress] = useState('')
-    const [mobile, setMobile] = useState('')
+    const [price, setPrice] = useState('')
 
 
 
     const [editName, setEditName] = useState('')
-    const [editAddress, setEditAddress] = useState('')
-    const [editMobile, setEditMobile] = useState('')
     const [edit_id, setEdit_id] = useState('')
+    const [editPrice, setEditPrice] = useState('')
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -36,7 +34,7 @@ const MilkCustomer = () => {
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5010/dairy/customers').then(res => {
+        axios.get('http://68.178.163.174:5010/cattles/medicines').then(res => {
             setData(res.data)
         })
     }
@@ -50,10 +48,9 @@ const MilkCustomer = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5010/dairy/customers/add', {
+        axios.post('http://68.178.163.174:5010/cattles/medicines/add', {
             name,
-            address,
-            mobile
+            price
         }).then(res => {
             toast('Submitted')
             getData()
@@ -63,10 +60,9 @@ const MilkCustomer = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5010/dairy/customers/update?id=${id}`, {
+        axios.put(`http://68.178.163.174:5010/cattles/medicines/edit?id=${id}`, {
             name: editName,
-            address: editAddress,
-            mobile: editMobile
+            price: editPrice
         })
             .then(res => {
                 getData()
@@ -81,7 +77,7 @@ const MilkCustomer = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/dairy/customers/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/cattles/medicines/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -94,7 +90,7 @@ const MilkCustomer = () => {
     }
 
     return (
-        <Milklayout>
+        <BeefFatteningLayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -108,7 +104,7 @@ const MilkCustomer = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Dairy</span> Customers</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cattle</span> Medicines</h1>
                                 </a>
                             </div>
                         </div>
@@ -130,17 +126,10 @@ const MilkCustomer = () => {
 
                     />
 
-                    <label>Address:</label>
-                    <input value={address} onChange={e => setAddress(e.target.value)} className='input' type='text'
+                    <label>Price:</label>
+                    <input value={price} onChange={e => setPrice(e.target.value)} className='input' type='text'
 
                     />
-
-                    <label>Mobile:</label>
-                    <input value={mobile} onChange={e => setMobile(e.target.value)} className='input' type='text'
-
-                    />
-
-
 
                     <button onClick={addData} className='button'>Submit</button>
 
@@ -151,8 +140,7 @@ const MilkCustomer = () => {
                     <thead>
                         <tr>
                             <th scope='col'>Name</th>
-                            <th scope='col'>Address</th>
-                            <th scope='col'>Mobile</th>
+                            <th scope='col'> Price</th>
 
                             <th scope='col'>Edit/Delete</th>
 
@@ -163,16 +151,14 @@ const MilkCustomer = () => {
                             data.map(calf => (
                                 <tr>
                                     <td>{calf.name}</td>
-                                    <td>{calf.address}</td>
-                                    <td>{calf.mobile}</td>
+                                    <td>{calf.price}</td>
 
                                     <td>
                                         <button onClick={() => {
 
                                             setEditName(calf.name)
-                                            setEditAddress(calf.address)
-                                            setEditMobile(calf.mobile)
                                             setEdit_id(calf.id)
+                                            setEditPrice(calf.price)
                                             setIsOpen(true)
                                         }} className='btn btn-secondary mx-2'>
                                             <BiEdit />
@@ -213,20 +199,15 @@ const MilkCustomer = () => {
                 >
                     <form className='details'>
 
-                        <label> Name:</label>
-                        <input value={editName} onChange={e => setEditName(e.target.value)} className='input' type='text'
+                    <label> Name:</label>
+                    <input value={editName} onChange={e => setEditName(e.target.value)} className='input' type='text'
 
-                        />
-                        <label> Address:</label>
-                        <input value={editAddress} onChange={e => setEditAddress(e.target.value)} className='input' type='text'
+                    />
 
-                        />
-                        <label> Mobile:</label>
-                        <input value={editMobile} onChange={e => setEditMobile(e.target.value)} className='input' type='text'
+                    <label>Price:</label>
+                    <input value={editPrice} onChange={e => setEditPrice(e.target.value)} className='input' type='text'
 
-                        />
-
-
+                    />
 
 
 
@@ -236,8 +217,8 @@ const MilkCustomer = () => {
                 </Modal>
 
             </div>
-        </Milklayout>
+        </BeefFatteningLayout>
     )
 }
 
-export default MilkCustomer
+export default BeefMedicines

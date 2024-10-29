@@ -66,6 +66,18 @@ import MilkMedicines from './pages/Milk/MilkMedicines';
 import MilkFeeding from './pages/Milk/MilkFeeding';
 import MilkCustomer from './pages/Milk/MilkCustomer';
 import BeefPurchasse from './pages/BeefFattening/BeefPurchasse';
+import BeefFeed from './pages/BeefFattening/BeefFeed';
+import BeefLabour from './pages/BeefFattening/BeefLabour';
+import BeefLabourPayment from './pages/BeefFattening/BeefLabourPayment';
+import BeefSlaughter from './pages/BeefFattening/BeefSlaughter';
+import BeefCustomers from './pages/BeefFattening/BeefCustomers';
+import BeefMedicines from './pages/BeefFattening/BeefMedicines';
+import BeefFeeding from './pages/BeefFattening/BeefFeeding';
+import BeefOthers from './pages/BeefFattening/BeefOthers';
+import BeefOthersPayment from './pages/BeefFattening/BeefOthersPayment';
+import BeefDoctors from './pages/BeefFattening/BeefDoctors';
+import BeefTreatment from './pages/BeefFattening/BeefTreatment';
+import BeefVaccines from './pages/BeefFattening/BeefVaccines';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -143,6 +155,18 @@ function App() {
         <Route element={<CowFeeding/>} exact path='/cow/feeding'/>
 
         <Route element={<BeefPurchasse />} exact path='/beef/purchase' />
+        <Route element={<BeefVaccines />} exact path='/beef/vaccines' />
+        <Route element={<BeefFeed />} exact path='/beef/feed' />
+        <Route element={<BeefLabour />} exact path='/beef/labour' />
+        <Route element={<BeefLabourPayment />} exact path='/beef/labour_payment' />
+        <Route element={<BeefOthers />} exact path='/beef/others' />
+        <Route element={<BeefOthersPayment />} exact path='/beef/others_payment' />
+        <Route element={<BeefDoctors />} exact path='/beef/doctors' />
+        <Route element={<BeefTreatment />} exact path='/beef/treatment' />
+        <Route element={<BeefSlaughter />} exact path='/beef/slaughter' />
+        <Route element={<BeefCustomers />} exact path='/beef/customer' />
+        <Route element={<BeefMedicines />} exact path='/beef/medicine' />
+        <Route element={<BeefFeeding />} exact path='/beef/feeding' />
         
         <Route element={<Calfdetails/>} exact path='/calfdetails'/>
         <Route element={<Login />} exact path='/login'/>

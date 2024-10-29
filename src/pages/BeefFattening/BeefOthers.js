@@ -17,43 +17,58 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import { Milklayout } from './milklayout'
-const MilkCustomer = () => {
+import BeefFatteningLayout from './beeffatteninglayout'
+const BeefOthers = () => {
     const [name, setName] = useState('')
-    const [address, setAddress] = useState('')
-    const [mobile, setMobile] = useState('')
+    const [shed_id, setShed_id] = useState('')
+    const [seat_id, setSeat_id] = useState('')
 
 
-
-    const [editName, setEditName] = useState('')
-    const [editAddress, setEditAddress] = useState('')
-    const [editMobile, setEditMobile] = useState('')
     const [edit_id, setEdit_id] = useState('')
+    const [edit_shed_id, setEdit_shed_id] = useState('')
+    const [edit_seat_id, setEdit_seat_id] = useState('')
+    const [edit_name, setEdit_name] = useState('')
+
 
     const [isOpen, setIsOpen] = useState(false)
 
 
+    const [sheds, setSheds] = useState([])
+    const [seats, setSeats] = useState([])
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5010/dairy/customers').then(res => {
+        axios.get('http://68.178.163.174:5010/cattles/beef_others').then(res => {
             setData(res.data)
         })
     }
 
     useEffect(() => {
+        axios.get(`http://68.178.163.174:5010/breeding/sheds`).then(res => {
+            setSheds(res.data)
+        })
+
+
         getData()
 
     }, [])
+
+    const getSeats = (shed_id) => {
+        axios.get(`http://68.178.163.174:5010/breeding/seats?shed_id=${shed_id}`)
+            .then(res => {
+                setSeats(res.data)
+            })
+    }
 
 
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5010/dairy/customers/add', {
+        axios.post('http://68.178.163.174:5010/cattles/beef_others/add', {
+            shed_id,
+            seat_id,
             name,
-            address,
-            mobile
+
         }).then(res => {
             toast('Submitted')
             getData()
@@ -63,10 +78,11 @@ const MilkCustomer = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5010/dairy/customers/update?id=${id}`, {
-            name: editName,
-            address: editAddress,
-            mobile: editMobile
+        axios.put(`http://68.178.163.174:5010/cattles/beef_others/edit?id=${id}`, {
+            name: edit_name,
+            shed_id: edit_shed_id,
+            seat_id: edit_seat_id,
+
         })
             .then(res => {
                 getData()
@@ -81,7 +97,7 @@ const MilkCustomer = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/dairy/customers/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/cattles/beef_others/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -94,7 +110,7 @@ const MilkCustomer = () => {
     }
 
     return (
-        <Milklayout>
+        <BeefFatteningLayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -108,7 +124,7 @@ const MilkCustomer = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Dairy</span> Customers</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2"> Others</span> List</h1>
                                 </a>
                             </div>
                         </div>
@@ -117,26 +133,35 @@ const MilkCustomer = () => {
                 </div>
 
                 <form>
+                    <label>Select Shed ID:</label>
+                    <select value={shed_id} onChange={e => {
+                        setShed_id(e.target.value)
+                        getSeats(e.target.value)
+                    }} className='select' >
+                        <option >Select</option>
+                        {
+                            sheds.map(shed => (
 
+                                <option value={shed.id}>{shed.name}</option>
+                            ))
+                        }
+                    </select>
 
+                    <label>Select Seat ID:</label>
+                    <select value={seat_id} onChange={e => {
+                        setSeat_id(e.target.value)
+                    }} className='select' >
+                        <option >Select</option>
+                        {
+                            seats.map(shed => (
 
-
-
-
-
+                                <option value={shed.id}>{shed.name}</option>
+                            ))
+                        }
+                    </select>
 
                     <label>Name:</label>
                     <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
-
-                    />
-
-                    <label>Address:</label>
-                    <input value={address} onChange={e => setAddress(e.target.value)} className='input' type='text'
-
-                    />
-
-                    <label>Mobile:</label>
-                    <input value={mobile} onChange={e => setMobile(e.target.value)} className='input' type='text'
 
                     />
 
@@ -151,8 +176,6 @@ const MilkCustomer = () => {
                     <thead>
                         <tr>
                             <th scope='col'>Name</th>
-                            <th scope='col'>Address</th>
-                            <th scope='col'>Mobile</th>
 
                             <th scope='col'>Edit/Delete</th>
 
@@ -163,16 +186,14 @@ const MilkCustomer = () => {
                             data.map(calf => (
                                 <tr>
                                     <td>{calf.name}</td>
-                                    <td>{calf.address}</td>
-                                    <td>{calf.mobile}</td>
 
                                     <td>
                                         <button onClick={() => {
 
-                                            setEditName(calf.name)
-                                            setEditAddress(calf.address)
-                                            setEditMobile(calf.mobile)
                                             setEdit_id(calf.id)
+                                            setEdit_name(calf.name)
+                                            setEdit_shed_id(calf.shed_id)
+                                            setEdit_seat_id(calf.seat_id)
                                             setIsOpen(true)
                                         }} className='btn btn-secondary mx-2'>
                                             <BiEdit />
@@ -213,16 +234,35 @@ const MilkCustomer = () => {
                 >
                     <form className='details'>
 
-                        <label> Name:</label>
-                        <input value={editName} onChange={e => setEditName(e.target.value)} className='input' type='text'
+                        <label>Select Shed ID:</label>
+                        <select value={edit_shed_id} onChange={e => {
+                            setEdit_shed_id(e.target.value)
+                            getSeats(e.target.value)
+                        }} className='select' >
+                            <option >Select</option>
+                            {
+                                sheds.map(shed => (
 
-                        />
-                        <label> Address:</label>
-                        <input value={editAddress} onChange={e => setEditAddress(e.target.value)} className='input' type='text'
+                                    <option value={shed.id}>{shed.name}</option>
+                                ))
+                            }
+                        </select>
 
-                        />
-                        <label> Mobile:</label>
-                        <input value={editMobile} onChange={e => setEditMobile(e.target.value)} className='input' type='text'
+                        <label>Select Seat ID:</label>
+                        <select value={edit_seat_id} onChange={e => {
+                            setEdit_seat_id(e.target.value)
+                        }} className='select' >
+                            <option >Select</option>
+                            {
+                                seats.map(shed => (
+
+                                    <option value={shed.id}>{shed.name}</option>
+                                ))
+                            }
+                        </select>
+
+                        <label>Name:</label>
+                        <input value={edit_name} onChange={e => setEdit_name(e.target.value)} className='input' type='text'
 
                         />
 
@@ -236,8 +276,8 @@ const MilkCustomer = () => {
                 </Modal>
 
             </div>
-        </Milklayout>
+        </BeefFatteningLayout>
     )
 }
 
-export default MilkCustomer
+export default BeefOthers

@@ -17,8 +17,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import Cowlayout from './Cowlayout'
-const CowTreatment = () => {
+import BeefFatteningLayout from './beeffatteninglayout'
+const BeefTreatment = () => {
     const [shed_id, setShed_id] = useState('')
     const [seat_id, setSeat_id] = useState('')
     const [cow_id, setCow_id] = useState('')
@@ -61,7 +61,7 @@ const CowTreatment = () => {
 
         let farm_id = localStorage.getItem('farm_id')
 
-        axios.get(`http://68.178.163.174:5010/doctors/breeding?farm_id=${farm_id}`).then(res => {
+        axios.get(`http://68.178.163.174:5010/doctors/beef?farm_id=${farm_id}`).then(res => {
             // console.log(res.data);
 
             if (res.data.length > 0) {
@@ -99,7 +99,7 @@ const CowTreatment = () => {
         axios.get(`http://68.178.163.174:5010/breeding/sheds`).then(res => {
             setSheds(res.data)
         })
-        axios.get('http://68.178.163.174:5010/breeding/doctors').then(res => {
+        axios.get('http://68.178.163.174:5010/cattles/doctors').then(res => {
             var results = res.data.map(item => {
                 item.selected = false;
                 return item;
@@ -125,7 +125,7 @@ const CowTreatment = () => {
     }
 
     const getCows = (shed_id, seat_id) => {
-        axios.get(`http://68.178.163.174:5010/breeding/cows?shed_id=${shed_id}&&seat_id=${seat_id}`)
+        axios.get(`http://68.178.163.174:5010/cattles?shed_id=${shed_id}&&seat_id=${seat_id}`)
             .then(res => {
                 setCows(res.data)
             })
@@ -150,11 +150,11 @@ const CowTreatment = () => {
                 }
                 formData.append('shed_id', shed_id)
                 formData.append('seat_id', seat_id)
-                formData.append('cow_id', cow_id)
+                formData.append('cattle_id', cow_id)
                 formData.append('disease_desc', diseases_description)
                 formData.append('farm_id', farm_id)
                 formData.append('doctor_id', doctors[i].doctor_id)
-                axios.post('http://68.178.163.174:5010/breeding/treatment', formData).then(res => {
+                axios.post('http://68.178.163.174:5010/cattles/treatment', formData).then(res => {
                     // console.log(res);
                     getData()
 
@@ -172,7 +172,7 @@ const CowTreatment = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/breeding/treatment/delete?cow_id=${cow_id}&doctor_id=${doctor_id}`)
+            axios.delete(`http://68.178.163.174:5010/cattles/treatment/delete?cattle_id=${cow_id}&doctor_id=${doctor_id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -188,7 +188,7 @@ const CowTreatment = () => {
     }
 
     return (
-        <Cowlayout>
+        <BeefFatteningLayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -202,7 +202,7 @@ const CowTreatment = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cow</span> Treatment</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cattle</span> Treatment</h1>
                                 </a>
                             </div>
                         </div>
@@ -249,7 +249,7 @@ const CowTreatment = () => {
                         {
                             cows.map(shed => (
 
-                                <option value={shed.id}>{shed.cow_id}</option>
+                                <option value={shed.id}>{shed.cattle_id}</option>
                             ))
                         }
                     </select>
@@ -336,7 +336,7 @@ const CowTreatment = () => {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th scope='col'>Cow ID</th>
+                            <th scope='col'>Cattle ID</th>
                             <th scope='col'> Doctor ID</th>
                             <th scope='col'>Disease Description</th>
                             <th scope='col'>Images</th>
@@ -348,7 +348,7 @@ const CowTreatment = () => {
                         {
                             data.map(calf => (
                                 <tr>
-                                    <td>{calf[Object.keys(calf)[0]][0].cow_id}</td>
+                                    <td>{calf[Object.keys(calf)[0]][0].cattle_id}</td>
                                     <td>{Object.keys(calf)[0]}</td>
                                     <td>{calf[Object.keys(calf)[0]][0].disease_desc}</td>
                                     <td className='w-100'>
@@ -368,7 +368,7 @@ const CowTreatment = () => {
                                     </td>
                                     <td>
                                         <button onClick={() => {
-                                            setEdit_cow_id(calf[Object.keys(calf)[0]][0].cow_id)
+                                            setEdit_cow_id(calf[Object.keys(calf)[0]][0].cattle_id)
                                             setEdit_shed_id(calf[Object.keys(calf)[0]][0].shed_id)
                                             setEdit_seat_id(calf[Object.keys(calf)[0]][0].seat_id)
                                             setEdit_id(calf[Object.keys(calf)[0]][0].id)
@@ -380,7 +380,7 @@ const CowTreatment = () => {
                                         }} className='btn btn-secondary mx-2'>
                                             <BsEye />
                                         </button>
-                                        <button onClick={e => deleteData(e, calf[Object.keys(calf)[0]][0].cow_id, Object.keys(calf)[0])} className='btn btn-danger'>
+                                        <button onClick={e => deleteData(e, calf[Object.keys(calf)[0]][0].cattle_id, Object.keys(calf)[0])} className='btn btn-danger'>
                                             <MdDelete />
                                         </button>
                                     </td>
@@ -433,8 +433,8 @@ const CowTreatment = () => {
                 </Modal>
 
             </div>
-        </Cowlayout>
+        </BeefFatteningLayout>
     )
 }
 
-export default CowTreatment
+export default BeefTreatment

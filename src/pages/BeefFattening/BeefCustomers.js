@@ -17,8 +17,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
-import { Milklayout } from './milklayout'
-const MilkCustomer = () => {
+import BeefFatteningLayout from './beeffatteninglayout'
+const BeefCustomers = () => {
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [mobile, setMobile] = useState('')
@@ -36,7 +36,7 @@ const MilkCustomer = () => {
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5010/dairy/customers').then(res => {
+        axios.get('http://68.178.163.174:5010/cattles/customers').then(res => {
             setData(res.data)
         })
     }
@@ -50,7 +50,7 @@ const MilkCustomer = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5010/dairy/customers/add', {
+        axios.post('http://68.178.163.174:5010/cattles/customers/add', {
             name,
             address,
             mobile
@@ -63,7 +63,7 @@ const MilkCustomer = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5010/dairy/customers/update?id=${id}`, {
+        axios.put(`http://68.178.163.174:5010/cattles/customers/update?id=${id}`, {
             name: editName,
             address: editAddress,
             mobile: editMobile
@@ -81,7 +81,7 @@ const MilkCustomer = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5010/dairy/customers/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/cattles/customers/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -94,7 +94,7 @@ const MilkCustomer = () => {
     }
 
     return (
-        <Milklayout>
+        <BeefFatteningLayout>
             <div className='details'>
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
@@ -108,7 +108,7 @@ const MilkCustomer = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Dairy</span> Customers</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Cattle</span> Customers</h1>
                                 </a>
                             </div>
                         </div>
@@ -236,8 +236,8 @@ const MilkCustomer = () => {
                 </Modal>
 
             </div>
-        </Milklayout>
+        </BeefFatteningLayout>
     )
 }
 
-export default MilkCustomer
+export default BeefCustomers

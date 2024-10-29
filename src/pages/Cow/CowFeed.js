@@ -77,8 +77,8 @@ const CowFeed = () => {
         shed_id,
         seat_id,
         cow_id,
-        weight: amount,
-        amount: price
+       amount,
+        price
       }).then(res => {
         toast('Submitted')
       })
@@ -92,8 +92,8 @@ const CowFeed = () => {
         shed_id: edit_shed_id,
         seat_id: edit_seat_id,
         cow_id: edit_cow_id,
-        weight: edit_amount,
-        amount: edit_price
+        amount: edit_amount,
+        price: edit_price
       })
         .then(res => {
             getData()
@@ -228,14 +228,14 @@ const CowFeed = () => {
                 <td>{calf.amount}</td>
                 <td>
                   <button onClick={() => {
-                    setEdit_cow_id(calf.calf_id)
+                    setEdit_cow_id(calf.cow_id)
                     setEdit_shed_id(calf.shed_id)
                     setEdit_seat_id(calf.seat_id)
                     setEdit_id(calf.id)
                     getSeats(calf.shed_id)
                     getCows(calf.shed_id, calf.seat_id)
-                    setEdit_amount(calf.weight)
-                    setEdit_price(calf.amount)
+                    setEdit_amount(calf.amount)
+                    setEdit_price(calf.price)
                     setIsOpen(true)
                   }} className='btn btn-secondary mx-2'>
                     <BiEdit /> 
@@ -312,7 +312,7 @@ const CowFeed = () => {
           {
             cows.map(shed => (
 
-              <option value={shed.id}>{shed.calf_id}</option>
+              <option value={shed.id}>{shed.cow_id}</option>
             ))
           }
         </select>
