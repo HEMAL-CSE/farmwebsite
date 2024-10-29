@@ -42,8 +42,8 @@ const Home = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h2 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br/> Organic   
-                                Fertilizer Center.</h2>
+                                <h3 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br/> Organic   
+                                Fertilizer Center.</h3>
                             </a>
                         </div>
                     </div>
