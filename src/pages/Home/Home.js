@@ -1,5 +1,6 @@
 import React from 'react'
-import about from './images/about.png'
+import about from './images/about.jfif'
+// import about from './images/'
 import bg_product_1 from './images/bg-product-1.png'
 import bg_product_2 from './images/bg-product-2.png'
 import blog_2 from './images/blog-2.jpg'
@@ -41,7 +42,8 @@ const Home = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h1 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span>Management</h1>
+                                <h2 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br/> Organic   
+                                Fertilizer Center.</h2>
                             </a>
                         </div>
                     </div>
@@ -158,7 +160,7 @@ const Home = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style={{ height: '300px' }}>
-                                <h3 className="text-white mb-3">Organic Fruits</h3>
+                                <h3 className="text-white mb-3">Organic VermiCompost</h3>
                                 <p className="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
                                 <a className="text-white fw-bold" href="">Read More<BiArrowFromRight className='ms-2' /></a>
                             </div>
@@ -181,7 +183,7 @@ const Home = () => {
                         <div className="col-lg-6 pb-5">
                             <div className="mb-3 pb-2">
                                 <h6 className="text-success2 text-uppercase">About Us</h6>
-                                <h1 className="display-5">We Produce Organic Food For Your Family</h1>
+                                <h1 className="display-5">We Produce Organic Vermicompost.</h1>
                             </div>
                             <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
                             <div className="row gx-5 gy-4">
