@@ -435,81 +435,78 @@ const Home = () => {
             {/* <!-- Testimonial End --> */}
 
 
-            {/* <!-- Team Start --> */}
-            <div className="container-fluid py-5">
-                <div className="container">
-                    <div className="mx-auto text-center mb-5" style={{ maxWwidth: '500px' }}>
-                        <h6 className="text-success2 text-uppercase">The Team</h6>
-                        <h1 className="display-5">We Are Professional Organic Farmers</h1>
-                    </div>
-                    <div className="row g-5">
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-1.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-2.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-3.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            {/* <!-- Contact Start --> */}
+            <section class="contact">
+    <div class="content">
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="container1">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker"></i>
+                </div>
+                    <div class="text">
+                        <h3>Location</h3>
+                        <p>Khaja Super Market, 2nd to 7th Floor, <br/> Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.</p>
                     </div>
                 </div>
+
+                <div class="box">
+                    <div class="icon"> <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>info@e-laeltd.com</p>
+                        </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"> <i class="fa fa-volume-control-phone" aria-hidden="true"></i> </div>
+                    <div class="text">
+                        <h3>Telephone</h3>
+                        <p>+88 02-58054685</p>
+                    </div>
+                </div>
+                 
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>+88 01550-666900</p>
+                        </div>
+                </div>
             </div>
-            {/* <!-- Team End --> */}
+                
+                {/* <!-- Contact form --> */}
+                <div class="contactForm">
+                    <form>
+                        <h2>Send Message</h2>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required" />
+                            <span>Full Name</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="email" name="" required="required" />
+                            <span>Email</span>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <textarea required="required"></textarea>
+                            <span>Type your Message..</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" name="" value="Send" />
+                        </div>
+                    </form>
+                </div>
+
+            
+        </div>
+</section>
+            {/* <!-- Contact End --> */}
 
 
             {/* <!-- Footer Start --> */}
