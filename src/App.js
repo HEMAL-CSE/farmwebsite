@@ -78,6 +78,7 @@ import BeefOthersPayment from './pages/BeefFattening/BeefOthersPayment';
 import BeefDoctors from './pages/BeefFattening/BeefDoctors';
 import BeefTreatment from './pages/BeefFattening/BeefTreatment';
 import BeefVaccines from './pages/BeefFattening/BeefVaccines';
+import Doctor from './pages/Doctor/Doctor';
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -171,6 +172,8 @@ function App() {
         <Route element={<Calfdetails/>} exact path='/calfdetails'/>
         <Route element={<Login />} exact path='/login'/>
         <Route element={<Register />} exact path='/register' />
+
+        <Route element={<Doctor />} exact path='/doctor' />
 
       
       </Routes>

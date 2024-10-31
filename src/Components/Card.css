@@ -6,11 +6,11 @@
     flex-direction: column;
     margin: 0.5rem;
     background-color: white;
-    height: fit-content;
+    /* height: fit-content; */
     flex: 1 0 21%; /* explanation below */
     margin-right: 36px;
     margin-bottom: 42px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin-left: 42px;
   }
@@ -31,17 +31,20 @@
   
   .card-description {
     margin: 0.5rem 5%;
+    flex-grow: 1;
   }
   
   .card-btn {
     text-align: center;
     width: 90%;
+    margin-top: auto;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     background-color: rgb(102, 5, 5);
     /* background-color: #2563eb; */
     color: white;
     text-decoration: none;
+    
     margin: 0.5rem 0.5rem;
     margin-bottom: 25px;
     font-size: 18px;
@@ -52,6 +55,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
 
   .app{
     margin-left: 72px;
