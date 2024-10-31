@@ -81,7 +81,7 @@ const BeefSlaughter = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post(`http://68.178.163.174:5010/cattles/slaughter/add?id=${cattle_id}`, {
+        axios.put(`http://68.178.163.174:5010/cattles/slaughter/add?id=${cattle_id}`, {
             slaughtering_date,
             weight: cattle_body_weight,
             per_kg_cost,
@@ -189,7 +189,7 @@ const BeefSlaughter = () => {
                     }} className='select' >
                         <option >Select</option>
                         {
-                            cattle_id.map(shed => (
+                            cattles.map(shed => (
 
                                 <option value={shed.id}>{shed.cattle_id}</option>
                             ))
@@ -252,7 +252,7 @@ const BeefSlaughter = () => {
                                     <td>{calf.shed_id}</td>
                                     <td>{calf.seat_id}</td>
                                     <td>{(moment(calf.slaughtering_date).format('DD/MM/yyyy'))}</td>
-                                    <td>{calf.cattle_body_weight}</td>
+                                    <td>{calf.weight}</td>
                                     <td>{calf.per_kg_cost}</td>
                                     <td>{calf.others_income}</td>
                                     <td>{calf.expenses}</td>

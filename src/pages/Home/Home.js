@@ -17,13 +17,19 @@ import team_2 from './images/team-2.jpg'
 import team_3 from './images/team-3.jpg'
 import testimonial from './images/testimonial.jpg'
 import vegetable from './images/vegetable.png'
-import { BsGeoAlt, BsPhoneVibrate, BsTelephone, BsTwitter } from 'react-icons/bs'
+import { BsBucket, BsGeoAlt, BsPhoneVibrate, BsTelephone, BsTwitter } from 'react-icons/bs';
+import VisibilitySensor from 'react-visibility-sensor';
+
 
 import './CSS/style.css'
 import { FaAward, FaCheck, FaFacebook, FaLinkedin, FaMugHot, FaPhoneAlt, FaSeedling, FaStar, FaTractor, FaTwitter, FaUsers, FaYoutube } from 'react-icons/fa'
-import { BiArrowFromRight, BiArrowToRight, BiEnvelopeOpen } from 'react-icons/bi'
-import { FaCow } from 'react-icons/fa6'
+import { BiArrowFromRight, BiArrowToRight, BiEnvelopeOpen, BiLeaf } from 'react-icons/bi'
+import { FaA, FaCow, FaUserDoctor } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import CountUp from 'react-countup'
+import { LuBeef, LuMilk } from 'react-icons/lu'
+import { GiChicken, GiFarmer, GiGoat, GiRoastChicken, GiRooster, GiSteak } from 'react-icons/gi'
+import { TbMilk } from 'react-icons/tb'
 
 const Home = () => {
 
@@ -42,21 +48,21 @@ const Home = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h3 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br/> Organic   
-                                Fertilizer Center.</h3>
+                                <h3 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
+                                    Fertilizer Center.</h3>
                             </a>
                         </div>
                     </div>
                     <div className="col-lg-2">
-                    
+
                         <div className="d-flex align-items-center justify-content-end">
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter /></a>
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook /></a>
                             <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin /></a>
                             <a className="btn btn-success2 btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube /></a>
                         </div>
-                        
-                    </div> 
+
+                    </div>
                 </div>
             </div>
             {/* <!-- Topbar End --> */}
@@ -73,10 +79,10 @@ const Home = () => {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav mx-auto py-0">
                         <a href="#" className="nav-item nav-link active">Home</a>
-                        <a href="#" className="nav-item nav-link">About</a>
+                        <a href="#about" className="nav-item nav-link">About</a>
                         <a href="#" className="nav-item nav-link">Service</a>
                         <a href="#" className="nav-item nav-link">Product</a>
-                        <div className="nav-item dropdown">
+                        {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
                                 <a href="blog.html" className="dropdown-item">Blog Grid</a>
@@ -85,7 +91,7 @@ const Home = () => {
                                 <a href="team.html" className="dropdown-item">The Team</a>
                                 <a href="testimonial.html" className="dropdown-item">Testimonial</a>
                             </div>
-                        </div>
+                        </div> */}
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
                 </div>
@@ -172,30 +178,42 @@ const Home = () => {
 
 
             {/* <!-- About Start --> */}
-            <div className="container-fluid about pt-5">
+            <div id='about' className="container-fluid about p-5">
                 <div className="container">
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
-                            <div className="d-flex h-100  border-success2 pt-4">
+                            <div className="d-flex h-100  border-success2 pt-0">
                                 <img className="img-fluid mt-auto mx-auto" src={about1} />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">
                             <div className="mb-3 pb-2">
-                                <h4 className="text-success2 text-uppercase">About Us</h4>
+                                <h3 className="text-success2 text-uppercase">About Us</h3>
                                 <h3 className="display-5">We Produce Organic Vermicompost.</h3>
                             </div>
                             <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
                             <div className="row gx-5 gy-4">
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-seedling display-1 text-secondary"></i> */}
-                                    <FaSeedling className='display-1 text-secondary' />
+                                    <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>100% Organic</h4>
                                     <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                                 </div>
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-award display-1 text-secondary"></i> */}
-                                    <FaAward className='display-1 text-secondary' />
+                                    <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <FaAward size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>Award Winning</h4>
                                     <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                                 </div>
@@ -213,50 +231,72 @@ const Home = () => {
                     <div className="row gx-5 gy-4">
                         <div className="col-lg-3 col-md-6">
                             <div className="d-flex">
-                                <div className="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-star fs-4 text-white"></i> */}
                                     <FaStar className='fs-4 text-white' />
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-white">Our Experience</h5>
-                                    <h1 className="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                                </div>
+                                    <CountUp end={12345} redraw={true}>
+                                        {({ countUpRef, start }) => (
+                                            <VisibilitySensor onChange={start} delayedCall>
+                                                <span ref={countUpRef} className='display-5 text-white mb-0' />
+                                            </VisibilitySensor>
+                                        )}
+                                    </CountUp>                                </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="d-flex">
-                                <div className="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-users fs-4 text-white"></i> */}
                                     <FaUsers className='fs-4 text-white' />
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-white">Farm Specialist</h5>
-                                    <h1 className="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                                    {/* <h1 className="display-5 text-white mb-0" data-toggle="counter-up">12345</h1> */}
+                                    <CountUp end={12345} redraw={false}>
+                                        {({ countUpRef, start }) => (
+                                            <VisibilitySensor onChange={start} delayedCall>
+                                                <span ref={countUpRef} className='display-5 text-white mb-0' />
+                                            </VisibilitySensor>
+                                        )}
+                                    </CountUp>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="d-flex">
-                                <div className="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-check fs-4 text-white"></i> */}
                                     <FaCheck className='fs-4 text-white' />
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-white">Complete Project</h5>
-                                    <h1 className="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                                </div>
+                                    <CountUp end={12345} redraw={true}>
+                                        {({ countUpRef, start }) => (
+                                            <VisibilitySensor onChange={start} delayedCall>
+                                                <span ref={countUpRef} className='display-5 text-white mb-0' />
+                                            </VisibilitySensor>
+                                        )}
+                                    </CountUp>                                </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="d-flex">
-                                <div className="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-circle d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-mug-hot fs-4 text-white"></i> */}
                                     <FaMugHot className='fs-4 text-white' />
                                 </div>
                                 <div className="ps-4">
                                     <h5 className="text-white">Happy Clients</h5>
-                                    <h1 className="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                                </div>
+                                    <CountUp end={12345} redraw={true}>
+                                        {({ countUpRef, start }) => (
+                                            <VisibilitySensor onChange={start} delayedCall>
+                                                <span ref={countUpRef} className='display-5 text-white mb-0' />
+                                            </VisibilitySensor>
+                                        )}
+                                    </CountUp>                                </div>
                             </div>
                         </div>
                     </div>
@@ -272,77 +312,125 @@ const Home = () => {
 
                         <div className="col-lg-4 col-md-6">
                             <div className="mb-3">
-                                <h4 className="text-success2 text-uppercase">Services</h4>
-                                <h5 className="display-5">Doctors</h5>
+                                <h1 className=" text-success2 text-uppercase fw-bold">Services</h1>
+                               
                             </div>
                             <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit.</p>
-                            <a href="" className="btn btn-success2 py-md-3 px-md-5">Contact Us</a>
+                            <a href="" className="btn btn-success2 py-md-3 px-md-5 text-white">Contact Us</a>
                         </div>
 
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow"></i> */}
-                                <FaCow />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>VermiCompost</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow"></i> */}
-                                <FaCow />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <FaCow size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Breeding</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow"></i> */}
-                                <FaCow />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <GiSteak size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Beef Fattening</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow mb-3"></i> */}
-                                <FaCow className='mb-3' />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <BsBucket size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Dairy</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow mb-3"></i> */}
-                                <FaCow className='mb-3' />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <GiGoat size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Goat</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow mb-3"></i> */}
-                                <FaCow className='mb-3' />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <GiRooster size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Chicken</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item text-center p-5">
                                 {/* <i className="fa-solid fa-cow mb-3"></i> */}
-                                <FaCow className='mb-3' />
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <GiFarmer size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Farming Plans</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6">
-                            <div className="service-item bg-light text-center p-5">
+                            <div className="service-item  text-center p-5">
                                 {/* <i className="fa-solid fa-cow mb-3"></i> */}
-                                <FaCow className='mb-3' />
-                                <h4>Farming Plans</h4>
+                                <svg width="0" height="0">
+                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                        <stop stopColor="green" offset="10%" />
+                                        <stop stopColor="yellow" offset="100%" />
+                                    </linearGradient>
+                                </svg>
+                                <FaUserDoctor size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
+                                <h4>Doctor</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                             </div>
                         </div>
@@ -355,15 +443,15 @@ const Home = () => {
 
             {/* <!-- Features Start --> */}
             <div className="container-fluid bg-success2 feature py-5 pb-lg-0 my-5">
-                <div className="container py-5 pb-lg-0">
+                <div className="container py-2 pb-lg-0">
                     <div className="mx-auto text-center mb-3 pb-2" style={{ maxWidth: '500px' }}>
-                        <h4 className="text-uppercase text-secondary">Features</h4>
+                        <h3 className="text-uppercase text-white mb-3 fw-bold">Features</h3>
                         <h2 className="display-5 text-white">Why Choose Us!!!</h2>
                     </div>
                     <div className="row g-5">
                         <div className="col-lg-3">
                             <div className="text-white mb-5">
-                                <div className="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-seedling fs-4 text-white"></i> */}
                                     <FaSeedling className='text-white fs-4' />
                                 </div>
@@ -371,7 +459,7 @@ const Home = () => {
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
                             </div>
                             <div className="text-white">
-                                <div className="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-award fs-4 text-white"></i> */}
                                     <FaAward className='fs-4 text-white' />
                                 </div>
@@ -382,12 +470,12 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="d-block bg-white h-100 text-center p-5 pb-lg-0">
                                 <p>At et justo elitr amet sea at. Magna et sit vero at ipsum sit et dolores rebum. Magna sea eos sit dolor, ipsum amet no tempor ipsum eirmod lorem eirmod diam tempor dolor eos diam et et diam dolor ea. Clita est rebum amet dolore sit. Dolor stet dolor duo clita, vero dolor ipsum amet dolore magna lorem erat stet sed vero dolor</p>
-                                <img className="img-fluid" src="img/feature.png" alt="" />
+                                <img className="img-fluid" src={feature} alt="" />
                             </div>
                         </div>
                         <div className="col-lg-3">
                             <div className="text-white mb-5">
-                                <div className="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-tractor fs-4 text-white"></i> */}
                                     <FaTractor className='fs-4 text-white' />
                                 </div>
@@ -395,9 +483,9 @@ const Home = () => {
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
                             </div>
                             <div className="text-white">
-                                <div className="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
+                                <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     {/* <i className="fa fa-phone-alt fs-4 text-white"></i> */}
-                                    <FaPhoneAlt className='fs-4 text-white'/>
+                                    <FaPhoneAlt className='fs-4 text-white' />
                                 </div>
                                 <h4 className="text-white">24/7 Support</h4>
                                 <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
@@ -456,10 +544,10 @@ const Home = () => {
                                 </div>
                                 <div className="col-2">
                                     <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
                                         <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
                                     </div>
                                 </div>
                             </div>
@@ -477,10 +565,10 @@ const Home = () => {
                                 </div>
                                 <div className="col-2">
                                     <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
                                     </div>
                                 </div>
                             </div>
@@ -498,10 +586,10 @@ const Home = () => {
                                 </div>
                                 <div className="col-2">
                                     <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary'/></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
+                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
                                     </div>
                                 </div>
                             </div>
@@ -522,46 +610,46 @@ const Home = () => {
                                     <h4 className="text-white mb-4">Get In Touch</h4>
                                     <div className="d-flex mb-2">
                                         {/* <i className="bi bi-geo-alt text-white me-2"></i> */}
-                                        <BsGeoAlt className='text-white me-2'/>
+                                        <BsGeoAlt className='text-white me-2' />
                                         <p className="text-white mb-0">Khaja IT Park, 2nd to 7th Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         {/* <i className="bi bi-envelope-open text-white me-2"></i> */}
-                                        <BiEnvelopeOpen className='text-white me-2'/>
+                                        <BiEnvelopeOpen className='text-white me-2' />
                                         <p className="text-white mb-0">promiseinfotech2@gmail.com</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         {/* <i className="bi bi-telephone text-white me-2"></i> */}
-                                        <BsTelephone className='text-white me-2'/>
+                                        <BsTelephone className='text-white me-2' />
                                         <p className="text-white mb-0">+880 1958-063310</p>
                                     </div>
                                     <div className="d-flex mt-4">
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary'/></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary'/></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary'/></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary'/></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                                     <h4 className="text-white mb-4">Quick Links</h4>
                                     <div className="d-flex flex-column justify-content-start">
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Home</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>About Us</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Our Services</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Meet The Team</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Latest Blog</a>
-                                        <a className="text-white" href="#"><BiArrowFromRight className='text-white me-2'/>Contact Us</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Home</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />About Us</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Our Services</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Meet The Team</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Latest Blog</a>
+                                        <a className="text-white" href="#"><BiArrowFromRight className='text-white me-2' />Contact Us</a>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                                     <h4 className="text-white mb-4">Popular Links</h4>
                                     <div className="d-flex flex-column justify-content-start">
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Home</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>About Us</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Our Services</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Meet The Team</a>
-                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2'/>Latest Blog</a>
-                                        <a className="text-white" href="#"><BiArrowFromRight className='text-white me-2'/>Contact Us</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Home</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />About Us</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Our Services</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Meet The Team</a>
+                                        <a className="text-white mb-2" href="#"><BiArrowFromRight className='text-white me-2' />Latest Blog</a>
+                                        <a className="text-white" href="#"><BiArrowFromRight className='text-white me-2' />Contact Us</a>
                                     </div>
                                 </div>
                             </div>
