@@ -1,5 +1,5 @@
 import React from 'react'
-import about from './images/about.jfif'
+import about1 from './images/about1.jpg'
 // import about from './images/'
 import bg_product_1 from './images/bg-product-1.png'
 import bg_product_2 from './images/bg-product-2.png'
@@ -177,13 +177,13 @@ const Home = () => {
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <div className="d-flex h-100  border-success2 pt-4">
-                                <img className="img-fluid mt-auto mx-auto" src={about} />
+                                <img className="img-fluid mt-auto mx-auto" src={about1} />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">
                             <div className="mb-3 pb-2">
-                                <h6 className="text-success2 text-uppercase">About Us</h6>
-                                <h1 className="display-5">We Produce Organic Vermicompost.</h1>
+                                <h4 className="text-success2 text-uppercase">About Us</h4>
+                                <h3 className="display-5">We Produce Organic Vermicompost.</h3>
                             </div>
                             <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
                             <div className="row gx-5 gy-4">
