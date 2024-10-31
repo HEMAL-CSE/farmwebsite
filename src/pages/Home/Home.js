@@ -22,14 +22,15 @@ import VisibilitySensor from 'react-visibility-sensor';
 
 
 import './CSS/style.css'
-import { FaAward, FaCheck, FaFacebook, FaLinkedin, FaMugHot, FaPhoneAlt, FaSeedling, FaStar, FaTractor, FaTwitter, FaUsers, FaYoutube } from 'react-icons/fa'
-import { BiArrowFromRight, BiArrowToRight, BiEnvelopeOpen, BiLeaf } from 'react-icons/bi'
+import { FaAward, FaCheck, FaFacebook, FaLinkedin, FaMapMarked, FaMapMarker, FaMapMarkerAlt, FaMugHot, FaPhoneAlt, FaSeedling, FaStar, FaTractor, FaTwitter, FaUsers, FaYoutube } from 'react-icons/fa'
+import { BiArrowFromRight, BiArrowToRight, BiEnvelope, BiEnvelopeOpen, BiLeaf } from 'react-icons/bi'
 import { FaA, FaCow, FaUserDoctor } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 import CountUp from 'react-countup'
 import { LuBeef, LuMilk } from 'react-icons/lu'
 import { GiChicken, GiFarmer, GiGoat, GiRoastChicken, GiRooster, GiSteak } from 'react-icons/gi'
 import { TbMilk } from 'react-icons/tb'
+import { PiPhone } from 'react-icons/pi'
 
 const Home = () => {
 
@@ -48,7 +49,7 @@ const Home = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h3 className="m-0 display-4 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
+                                <h3 className="m-0 display-5 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
                                     Fertilizer Center.</h3>
                             </a>
                         </div>
@@ -523,81 +524,80 @@ const Home = () => {
             {/* <!-- Testimonial End --> */}
 
 
-            {/* <!-- Team Start --> */}
-            <div className="container-fluid py-5">
-                <div className="container">
-                    <div className="mx-auto text-center mb-5" style={{ maxWwidth: '500px' }}>
-                        <h6 className="text-success2 text-uppercase">The Team</h6>
-                        <h1 className="display-5">We Are Professional Organic Farmers</h1>
-                    </div>
-                    <div className="row g-5">
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-1.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-2.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="row g-0">
-                                <div className="col-10">
-                                    <div className="position-relative">
-                                        <img className="img-fluid w-100" src="img/team-3.jpg" alt="" />
-                                        <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-square rounded-circle bg-white" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            {/* <!-- Contact Start --> */}
+            <section class="contact">
+    <div class="content">
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="container1">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon">
+                    <FaMapMarkerAlt />
+                </div>
+                    <div class="text">
+                        <h3>Location</h3>
+                        <p>Khaja Super Market, 2nd to 7th Floor, <br/> Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.</p>
                     </div>
                 </div>
+
+                <div class="box">
+                    <div class="icon"> 
+                        <BiEnvelope />
+                    </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>info@e-laeltd.com</p>
+                        </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"> <BsTelephone /></div>
+                    <div class="text">
+                        <h3>Telephone</h3>
+                        <p>+88 02-58054685</p>
+                    </div>
+                </div>
+                 
+                <div class="box">
+                    <div class="icon"><PiPhone /></div> 
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>+88 01550-666900</p>
+                        </div>
+                </div>
             </div>
-            {/* <!-- Team End --> */}
+                
+                {/* <!-- Contact form --> */}
+                <div class="contactForm">
+                    <form>
+                        <h2>Send Message</h2>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required" />
+                            <span>Full Name</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="email" name="" required="required" />
+                            <span>Email</span>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <textarea required="required"></textarea>
+                            <span>Type your Message..</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" name="" value="Send" />
+                        </div>
+                    </form>
+                </div>
+
+            
+        </div>
+</section>
+            {/* <!-- Contact End --> */}
 
 
             {/* <!-- Footer Start --> */}
@@ -624,10 +624,10 @@ const Home = () => {
                                         <p className="text-white mb-0">+880 1958-063310</p>
                                     </div>
                                     <div className="d-flex mt-4">
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter className='text-secondary' /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-secondary' /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-secondary' /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-secondary' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter className='text-white' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-white' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-white' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-white'/></a>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
