@@ -160,15 +160,18 @@ const Home = () => {
                     <div className="row gx-0">
                         <div className="col-md-6">
                             <div className="bg-success2 bg-vegetable d-flex flex-column justify-content-center p-5" style={{ height: '300px' }}>
-                                <h3 className="text-white mb-3">Organic Vegetables</h3>
-                                <p className="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
+                                <h3 className="text-white mb-3">Organic VermiCompost</h3>
+                                <p className="text-white"> Vermicompost is a high-quality organic fertilizer produced by earthworms feeding on organic waste. 
+                                    It's a nutrient-rich soil amendment that improves soil structure, water retention, and overall plant health. </p>
                                 <a className="text-white fw-bold" href="">Read More<BiArrowToRight className='ms-2' /></a>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style={{ height: '300px' }}>
-                                <h3 className="text-white mb-3">Organic VermiCompost</h3>
-                                <p className="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
+                                <h3 className="text-white mb-3">Healthy Plants</h3>
+                                <p className="text-white">Nurturing Healthy Plants with Organic Vermicompost
+                                Vermicompost, a natural, nutrient-rich fertilizer, is a game-changer for gardeners and plant enthusiasts. 
+                                Produced by earthworms feeding on organic waste, it offers a myriad of benefits for your plants.</p>
                                 <a className="text-white fw-bold" href="">Read More<BiArrowFromRight className='ms-2' /></a>
                             </div>
                         </div>
@@ -331,7 +334,7 @@ const Home = () => {
                                 </svg>
                                 <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>VermiCompost</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0 text-justify" >This Section provides VermiCompost management related modules like Earthworm purchase, expenses, production, vermicompost selling and feeding realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -345,7 +348,7 @@ const Home = () => {
                                 </svg>
                                 <FaCow size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Breeding</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0">This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
