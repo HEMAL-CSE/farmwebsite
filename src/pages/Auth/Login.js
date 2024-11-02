@@ -10,6 +10,17 @@ const Login = () => {
 
     const goToLink = (user_type_id, user_id) => {
         switch (user_type_id){
+            case 3:
+                axios.get(`http://68.178.163.174:5010/doctors/check_approved?user_id=${user_id}`)
+                .then(res => {
+                    if(res.data.checked){
+                        toast('Login Successful')
+                        navigator('/doctor')
+                    }else{
+                        toast('Not Approved')
+                    }
+                })
+                break
             case 6:
                 axios.get(`http://68.178.163.174:5010/farm/check_approved?owner_id=${user_id}`).then(
                     res => {
@@ -68,7 +79,7 @@ const Login = () => {
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h1 className="m-0 display-4 text-success2"><span className="text-secondary">Farmar</span>Dashboard</h1>
+                                <h1 className="m-0 display-4 text-success2"><span className="text-secondary">Auth</span>Dashboard</h1>
                             </a>
                         </div>
                     </div>
