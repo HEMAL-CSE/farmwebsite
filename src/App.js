@@ -79,6 +79,12 @@ import BeefDoctors from './pages/BeefFattening/BeefDoctors';
 import BeefTreatment from './pages/BeefFattening/BeefTreatment';
 import BeefVaccines from './pages/BeefFattening/BeefVaccines';
 import Doctor from './pages/Doctor/Doctor';
+import DoctorCow from './pages/Doctor/Cow/DoctorCow';
+import 'react-toastify/dist/ReactToastify.css';
+import DoctorBeef from './pages/Doctor/DoctorBeef';
+import DoctorDairy from './pages/Doctor/DoctorDairy';
+import DoctorCalf from './pages/Doctor/DoctorCalf';
+
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -174,6 +180,10 @@ function App() {
         <Route element={<Register />} exact path='/register' />
 
         <Route element={<Doctor />} exact path='/doctor' />
+        <Route element={<DoctorCow />} exact path='/doctor/cow' />
+        <Route element={<DoctorBeef />} exact path='/doctor/beef' />
+        <Route element={<DoctorDairy />} exact path='/doctor/milk' />
+        <Route element={<DoctorCalf />} exact path='/doctor/calf' />
 
       
       </Routes>
