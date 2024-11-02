@@ -84,6 +84,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import DoctorBeef from './pages/Doctor/DoctorBeef';
 import DoctorDairy from './pages/Doctor/DoctorDairy';
 import DoctorCalf from './pages/Doctor/DoctorCalf';
+import CowOthers from './pages/Cow/CowOthers';
+import CowOthersPayment from './pages/Cow/CowOthersPayment';
+import CalfOthers from './pages/Calf/CalfOthers';
+import CalfOthersPayment from './pages/Calf/CalfOthersPayment';
 
 function App() {
   return (
@@ -106,6 +110,8 @@ function App() {
         <Route element={<Calf_report />} exact path='/calf/report' />
         <Route element={<Calf_doctors />} exact path='/calf/doctors' />
         <Route element={<CalfTreatment />} exact path='/calf/treatment' />
+        <Route element={<CalfOthers />} exact path='/calf/others' />
+        <Route element={<CalfOthersPayment />} exact path='/calf/others_payment' />
 
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}
@@ -160,6 +166,8 @@ function App() {
         <Route element={<CowVaccines/>} exact path='/cow/vaccines'/>
         <Route element={<CowMedicines/>} exact path='/cow/medicine'/>
         <Route element={<CowFeeding/>} exact path='/cow/feeding'/>
+        <Route element={<CowOthers/>} exact path='/cow/others'/>
+        <Route element={<CowOthersPayment/>} exact path='/cow/others_payment'/>
 
         <Route element={<BeefPurchasse />} exact path='/beef/purchase' />
         <Route element={<BeefVaccines />} exact path='/beef/vaccines' />
