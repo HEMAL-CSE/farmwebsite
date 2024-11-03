@@ -187,7 +187,7 @@ const Home = () => {
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <div className="d-flex h-100  border-success2 pt-0">
-                                <img className="img-fluid mt-auto mx-auto" src={about1} />
+                                <img className="img-fluid mt-auto mx-auto h-100" src={about1} />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">
