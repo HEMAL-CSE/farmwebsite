@@ -48,19 +48,19 @@ const Home = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
-                            <a href="index.html" className="navbar-brand ms-lg-5">
-                                <h3 className="m-0 display-5 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
-                                    Fertilizer Center.</h3>
+                            <a href="#" className="navbar-brand ms-lg-5">
+                                <h6 className="m-0 display-5 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
+                                    Fertilizer Center.</h6>
                             </a>
                         </div>
                     </div>
                     <div className="col-lg-2">
 
                         <div className="d-flex align-items-center justify-content-end">
-                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter /></a>
-                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook /></a>
-                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin /></a>
-                            <a className="btn btn-success2 btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube /></a>
+                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://x.com/i/flow/"><FaTwitter /></a>
+                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://www.facebook.com/"><FaFacebook /></a>
+                            <a className="btn btn-success2 btn-square rounded-circle me-2" href="https://www.linkedin.com/feed/"><FaLinkedin /></a>
+                            <a className="btn btn-success2 btn-square rounded-circle" href="https://www.youtube.com/"><FaYoutube /></a>
                         </div>
 
                     </div>
@@ -81,7 +81,7 @@ const Home = () => {
                     <div className="navbar-nav mx-auto py-0">
                         <a href="#" className="nav-item nav-link active">Home</a>
                         <a href="#about" className="nav-item nav-link">About</a>
-                        <a href="#" className="nav-item nav-link">Service</a>
+                        <a href="#service" className="nav-item nav-link">Service</a>
                         <a href="#" className="nav-item nav-link">Product</a>
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -93,7 +93,7 @@ const Home = () => {
                                 <a href="testimonial.html" className="dropdown-item">Testimonial</a>
                             </div>
                         </div> */}
-                        <a href="contact.html" className="nav-item nav-link">Contact</a>
+                        <a href="#contact" className="nav-item nav-link">Contact</a>
                     </div>
                 </div>
                 <div className='d-flex align-items-center justify-content-center'>
@@ -195,7 +195,10 @@ const Home = () => {
                                 <h3 className="text-success2 text-uppercase">About Us</h3>
                                 <h3 className="display-5">We Produce Organic Vermicompost.</h3>
                             </div>
-                            <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
+                            <p className="mb-4">At Tania Vermicompost and Organic Fertilizer Center, we are dedicated to creating high-quality 
+                                organic vermicompost that enriches the soil and promotes sustainable agricultural practices.
+                                 Our vermicomposting process utilizes earthworms to break down organic waste materials, 
+                                transforming them into nutrient-rich compost that is free from harmful chemicals and additives.</p>
                             <div className="row gx-5 gy-4">
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-seedling display-1 text-secondary"></i> */}
@@ -207,7 +210,7 @@ const Home = () => {
                                 </svg>
                                 <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>100% Organic</h4>
-                                    <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                    <p className="mb-0">Sustainable Vermicompost Production: 100% Organic Solutions for Soil Health, that helps to growing healthy plants.</p>
                                 </div>
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-award display-1 text-secondary"></i> */}
@@ -219,7 +222,7 @@ const Home = () => {
                                 </svg>
                                 <FaAward size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>Award Winning</h4>
-                                    <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                    <p className="mb-0">Recognized Excellence: Award-Winning Innovations in Organic Vermicompost Production in Bangladesh.</p>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +322,7 @@ const Home = () => {
                                 <h1 className=" text-success2 text-uppercase fw-bold">Services</h1>
                                
                             </div>
-                            <p className="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit.</p>
+                            <p className="mb-4">From this Farm Management website, we serves several modules, like VermiCompost, Breeding, <br/>Dairy, Beef fattening, Doctors and farming plans. </p>
                             <a href="" className="btn btn-success2 py-md-3 px-md-5 text-white">Contact Us</a>
                         </div>
 
@@ -334,7 +337,8 @@ const Home = () => {
                                 </svg>
                                 <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>VermiCompost</h4>
-                                <p className="mb-0 text-justify" >This Section provides VermiCompost management related modules like Earthworm purchase, expenses, production, vermicompost selling and feeding realted information.</p>
+                                <p className="mb-0 text-justify" >This Section provides VermiCompost management related modules like Earthworm purchase, 
+                                    expenses, production, vermicompost selling and environment realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -348,7 +352,8 @@ const Home = () => {
                                 </svg>
                                 <FaCow size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Breeding</h4>
-                                <p className="mb-0">This Section provides Cow management related modules like cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information</p>
+                                <p className="mb-0 text-justify">This Section provides Breeding management related modules like 
+                                    cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -362,7 +367,8 @@ const Home = () => {
                                 </svg>
                                 <GiSteak size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Beef Fattening</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0">This Section provides Beef Fattening management related modules like 
+                                beef purchase, expenses, treatment, slaughter, healthcare, customers and feeding <br/>realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -376,7 +382,8 @@ const Home = () => {
                                 </svg>
                                 <BsBucket size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Dairy</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0 text-justify">This Section provides Dairy management related modules like 
+                                milk purchase, expenses, treatment, production, healthcare, customer list and feeding <br/>realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -390,7 +397,8 @@ const Home = () => {
                                 </svg>
                                 <GiGoat size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Goat</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0 text-justify">This Section provides Goat management related modules like 
+                                goat purchase, expenses, treatment, production, healthcare, customer list and feeding <br/>realted information.</p>
                             </div>
                         </div>
 
@@ -405,7 +413,8 @@ const Home = () => {
                                 </svg>
                                 <GiRooster size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Chicken</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0">This Section provides Chicken management related modules like 
+                                purchase, expenses, treatment, production, healthcare, customer list and feeding realted information.</p>
                             </div>
                         </div>
 
@@ -420,7 +429,8 @@ const Home = () => {
                                 </svg>
                                 <GiFarmer size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Farming Plans</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0">This Section provides Farming Plan for an Organic Vermicompost Center. Like, Site Selection and Setup, 
+                                    cowdung, earthWorm procurement, Vermicompost Production Process, lastly marketing and sells.</p>
                             </div>
                         </div>
 
@@ -435,7 +445,8 @@ const Home = () => {
                                 </svg>
                                 <FaUserDoctor size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Doctor</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                <p className="mb-0">This Section provides Doctors service for Tania Vermicompost and Organic   
+                                Fertilizer Center. Doctor service provide in several modules, like breeding cow, calf, beef fattening and dairy.</p>
                             </div>
                         </div>
 
@@ -460,7 +471,7 @@ const Home = () => {
                                     <FaSeedling className='text-white fs-4' />
                                 </div>
                                 <h4 className="text-white">100% Organic</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                                <p className="mb-0">Sustainable Vermicompost Production: 100% Organic Solutions for Soil Health.</p>
                             </div>
                             <div className="text-white">
                                 <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
@@ -468,12 +479,15 @@ const Home = () => {
                                     <FaAward className='fs-4 text-white' />
                                 </div>
                                 <h4 className="text-white">Award Winning</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                                <p className="mb-0">Recognized Excellence: Award-Winning Innovations in Organic Vermicompost Production in Bangladesh.</p>
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div className="d-block bg-white h-100 text-center p-5 pb-lg-0">
-                                <p>At et justo elitr amet sea at. Magna et sit vero at ipsum sit et dolores rebum. Magna sea eos sit dolor, ipsum amet no tempor ipsum eirmod lorem eirmod diam tempor dolor eos diam et et diam dolor ea. Clita est rebum amet dolore sit. Dolor stet dolor duo clita, vero dolor ipsum amet dolore magna lorem erat stet sed vero dolor</p>
+                                <p>People choose Tania Vermicompost and Organic Fertilizer Center for several reasons:
+                                    Tania Vermicompost and Organic Fertilizer Center offers a reliable, sustainable, 
+                                    and affordable solution for improving soil health and crop yields, 
+                                    making it a popular choice for farmers and gardeners in Bangladesh and helps to growing healthy plants.</p>
                                 <img className="img-fluid" src={feature} alt="" />
                             </div>
                         </div>
@@ -484,7 +498,7 @@ const Home = () => {
                                     <FaTractor className='fs-4 text-white' />
                                 </div>
                                 <h4 className="text-white">Modern Farming</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                                <p className="mb-0">In this farm we use modern technology to testing environmental health. </p>
                             </div>
                             <div className="text-white">
                                 <div className="bg-yellow rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
@@ -492,40 +506,12 @@ const Home = () => {
                                     <FaPhoneAlt className='fs-4 text-white' />
                                 </div>
                                 <h4 className="text-white">24/7 Support</h4>
-                                <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                                <p className="mb-0">We provide 24/7 support that ensuring continuous operations, problem-solving, and customer service.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <!-- Features Start --> */}
-
-
-            {/* <!-- Testimonial Start --> */}
-            {/* <div className="container-fluid bg-testimonial py-5 my-5">
-                <div className="container py-5">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-7">
-                            <div className="owl-carousel testimonial-carousel p-5">
-                                <div className="testimonial-item text-center text-white">
-                                    <img className="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="" />
-                                    <p className="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
-                                    <hr className="mx-auto w-25" />
-                                    <h4 className="text-white mb-0">Client Name</h4>
-                                </div>
-                                <div className="testimonial-item text-center text-white">
-                                    <img className="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="" />
-                                    <p className="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
-                                    <hr className="mx-auto w-25" />
-                                    <h4 className="text-white mb-0">Client Name</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-            {/* <!-- Testimonial End --> */}
-
 
             {/* <!-- Contact Start --> */}
             <section class="contact">
@@ -541,7 +527,8 @@ const Home = () => {
                 </div>
                     <div class="text">
                         <h3>Location</h3>
-                        <p>Khaja Super Market, 2nd to 7th Floor, <br/> Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207.</p>
+                        <p>Tania Vermicompost and Organic Fertilizer Center <br/>
+                         Shovarampur Board Office, Faridpur Sadar, Faridpur.</p>
                     </div>
                 </div>
 
@@ -551,7 +538,7 @@ const Home = () => {
                     </div>
                         <div class="text">
                             <h3>Email</h3>
-                            <p>info@e-laeltd.com</p>
+                            <p>tania124@gmail.com</p>
                         </div>
                 </div>
 
@@ -567,7 +554,7 @@ const Home = () => {
                     <div class="icon"><PiPhone /></div> 
                         <div class="text">
                             <h3>Phone</h3>
-                            <p>+88 01550-666900</p>
+                            <p>+88 01710-951097</p>
                         </div>
                 </div>
             </div>
@@ -627,7 +614,7 @@ const Home = () => {
                                         <p className="text-white mb-0">+880 1958-063310</p>
                                     </div>
                                     <div className="d-flex mt-4">
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaTwitter className='text-white' /></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://www.facebook.com/"><FaTwitter className='text-white' /></a>
                                         <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-white' /></a>
                                         <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-white' /></a>
                                         <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-white'/></a>
