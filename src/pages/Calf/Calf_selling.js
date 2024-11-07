@@ -19,6 +19,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
+import moment from 'moment'
 
 
 export const Calf_selling = () => {
@@ -35,17 +36,18 @@ export const Calf_selling = () => {
     const [edit_calf_id, setEdit_calf_id] = useState('')
     const [edit_id, setEdit_id] = useState('')
     const [edit_calf_price, setEdit_calf_price] = useState('')
-    const [Edit_date, setEdit_date] = useState('')
+    const [edit_calf_date, setEdit_calf_date] = useState('')
   
     const [isOpen, setIsOpen] = useState(false)
   
     const [sheds, setSheds] = useState([])
     const [seats, setSeats] = useState([])
+    const [calfs, setCalfs] = useState([])
   
     const [data, setData] = useState([])
   
     const getData = () => {
-      axios.get('http://68.178.163.174:5010/calf').then(res => {
+      axios.get('http://68.178.163.174:5010/calf?sold=1').then(res => {
         setData(res.data)
       })
     }
@@ -64,34 +66,41 @@ export const Calf_selling = () => {
           setSeats(res.data)
         })
     }
+
+    const getCalfs = (shed_id, seat_id) => {
+      axios.get(`http://68.178.163.174:5010/calf?shed_id=${shed_id}&&seat_id=${seat_id}`)
+        .then(res => {
+          setCalfs(res.data)
+        })
+    }
   
     const addData = (e) => {
       e.preventDefault()
   
-      axios.post('http://68.178.163.174:5010/calf/add', {
-        shed_id,
-        seat_id,
-        calf_id
+      axios.put(`http://68.178.163.174:5010/calf/selling?shed_id=${shed_id}&seat_id=${seat_id}&calf_id=${calf_id}`, {
+        selling_date: calf_date,
+        selling_price: calf_price
       }).then(res => {
+      getData()
+
         toast('Submitted')
       })
-      getData()
     }
   
     const editData = (e, id) => {
       e.preventDefault()
   
-      axios.put(`http://68.178.163.174:5010/calf/edit?id=${id}`, {
-        shed_id: edit_shed_id,
-        seat_id: edit_seat_id,
-        calf_id: edit_calf_id
+      axios.put(`http://68.178.163.174:5010/calf/selling?shed_id=${edit_shed_id}&seat_id=${edit_seat_id}&calf_id=${edit_calf_id}`, {
+        selling_date: edit_calf_date,
+        selling_price: edit_calf_price
       })
         .then(res => {
           toast('Updated')
+        getData()
+
           setIsOpen(false)
         })
   
-        getData()
     }
   
     const deleteData = (e,id) => {
@@ -133,23 +142,10 @@ export const Calf_selling = () => {
   
           <form>
 
-          <label>Select Date:</label>
 
-     <div style={{ textAlign: 'left',
-      width: '100%', 
-      // border: '1px solid #ccc',
-      padding: '0px',
-      marginTop: '5px',
-      }}> {/* Aligns content to the left */}
-      {/* <label>Select Date:</label> */}
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          // value={value}
-          // onChange={(newValue) => setValue(newValue)}
-          // renderInput={(params) => <input {...params} />}
-        />
-      </LocalizationProvider>
-     </div>
+          <label>Selling Date:</label>
+            <input value={calf_date} onChange={e => setCalf_date(e.target.value)} className='input' type='date'
+            />
             <label>Select Shed ID:</label>
             <select value={shed_id} onChange={e => {
               setShed_id(e.target.value)
@@ -167,6 +163,7 @@ export const Calf_selling = () => {
             <label>Select Seat ID:</label>
             <select value={seat_id} onChange={e => {
               setSeat_id(e.target.value)
+              getCalfs(shed_id, e.target.value)
             }} className='select' >
               <option >Select</option>
               {
@@ -177,9 +174,18 @@ export const Calf_selling = () => {
               }
             </select>
   
-            <label>Calf ID:</label>
-            <input value={calf_id} onChange={e => setCalf_id(e.target.value)} className='input' type='text'
-            />
+            <label>Select Calf ID:</label>
+            <select value={calf_id} onChange={e => {
+              setCalf_id(e.target.value)
+            }} className='select' >
+              <option >Select</option>
+              {
+                calfs.map(shed => (
+  
+                  <option value={shed.calf_id}>{shed.calf_id}</option>
+                ))
+              }
+            </select>
 
             <label>Calf Price:</label>
             <input value={calf_price} onChange={e => setCalf_price(e.target.value)} className='input' type='text'
@@ -206,11 +212,11 @@ export const Calf_selling = () => {
               {
                 data.map(calf => (
                   <tr>
-                    <td>{calf.calf_date}</td>
+                    <td>{moment(calf.selling_date).format('DD/MM/yyyy')}</td>
                     <td>{calf.calf_id}</td>
                     <td>{calf.shed_id}</td>
                     <td>{calf.seat_id}</td>
-                    <td>{calf.calf_price}</td>
+                    <td>{calf.selling_price}</td>
                     <td>
                       <button onClick={() => {
                         setEdit_calf_id(calf.calf_id)
@@ -218,6 +224,9 @@ export const Calf_selling = () => {
                         setEdit_seat_id(calf.seat_id)
                         setEdit_id(calf.id)
                         getSeats(calf.shed_id)
+                        getCalfs(calf.shed_id, calf.seat_id)
+                        setEdit_calf_date(calf.selling_date)
+                        setEdit_calf_price(calf.selling_price)
                         setIsOpen(true)
                       }} className='btn btn-secondary mx-2'>
                         <BiEdit />
@@ -257,6 +266,9 @@ export const Calf_selling = () => {
           >
             <form className='details'>
 
+            <label>Selling Date:</label>
+            <input value={edit_calf_date} onChange={e => setEdit_calf_date(e.target.value)} className='input' type='date'
+            />
               <label>Select Shed ID:</label>
               <select value={edit_shed_id} onChange={e => {
                 setEdit_shed_id(e.target.value)
@@ -274,6 +286,7 @@ export const Calf_selling = () => {
               <label>Select Seat ID:</label>
               <select value={edit_seat_id} onChange={e => {
                 setEdit_seat_id(e.target.value)
+                getCalfs(edit_shed_id, e.target.value)
               }} className='select' >
                 <option >Select</option>
                 {
@@ -284,9 +297,18 @@ export const Calf_selling = () => {
                 }
               </select>
   
-              <label>Calf ID:</label>
-              <input value={edit_calf_id} onChange={e => setEdit_calf_id(e.target.value)} className='input' type='text'
-              />
+              <label>Select Calf ID:</label>
+            <select value={edit_calf_id} onChange={e => {
+              setEdit_calf_id(e.target.value)
+            }} className='select' >
+              <option >Select</option>
+              {
+                calfs.map(shed => (
+  
+                  <option value={shed.calf_id}>{shed.calf_id}</option>
+                ))
+              }
+            </select>
 
               <label>Calf Price:</label>
               <input value={edit_calf_price} onChange={e => setEdit_calf_price(e.target.value)} className='input' type='text'

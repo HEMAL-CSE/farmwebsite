@@ -81,8 +81,9 @@ const CowFeed = () => {
         price
       }).then(res => {
         toast('Submitted')
-      })
       getData()
+
+      })
     }
   
     const editData = (e, id) => {
@@ -224,8 +225,8 @@ const CowFeed = () => {
                 <td>{calf.cow_id}</td>
                 <td>{calf.shed_id}</td>
                 <td>{calf.seat_id}</td>
-                <td>{calf.weight}</td>
                 <td>{calf.amount}</td>
+                <td>{calf.price}</td>
                 <td>
                   <button onClick={() => {
                     setEdit_cow_id(calf.cow_id)

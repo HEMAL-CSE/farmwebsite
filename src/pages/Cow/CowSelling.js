@@ -18,6 +18,7 @@ import { toast } from 'react-toastify'
 import { FiDelete } from 'react-icons/fi'
 import Modal from 'react-modal'
 import Cowlayout from './Cowlayout'
+import moment from 'moment'
 
 const CowSelling = () => {
     const [shed_id, setShed_id] = useState('')
@@ -182,7 +183,7 @@ return (
                     {
                         cows.map(shed => (
 
-                            <option value={shed.id}>{shed.cow_id}</option>
+                            <option value={shed.cow_id}>{shed.cow_id}</option>
                         ))
                     }
                 </select>
@@ -216,6 +217,7 @@ return (
                         <th scope='col'> Shed ID</th>
                         <th scope='col'>Seat ID</th>
                         <th scope='col'>Cow Selling Price</th>
+                        <th scope='col'>Cow Selling Date</th>
                         <th scope='col'>Edit/Delete</th>
 
                     </tr>
@@ -228,6 +230,7 @@ return (
                                 <td>{calf.shed_id}</td>
                                 <td>{calf.seat_id}</td>
                                 <td>{calf.cow_selling_price}</td>
+                                <td>{moment(calf.selling_date).format('DD/MM/yyyy')}</td>
                                 <td>
                                     <button onClick={() => {
                                         setEdit_cow_id(calf.calf_id)
