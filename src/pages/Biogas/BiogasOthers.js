@@ -1,18 +1,18 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import BioGasLayout from './BiogasLayout'
+import Modal from 'react-modal'
 import { BiEdit } from 'react-icons/bi'
 import { MdDelete } from 'react-icons/md'
-import Modal from 'react-modal'
-import BioGasLayout from './BiogasLayout'
-import { toast, ToastContainer } from 'react-toastify'
 
-const BiogasLabour = () => {
+const BiogasOthers = () => {
     const [name, setName] = useState('')
-
 
 
     const [edit_id, setEdit_id] = useState('')
     const [edit_name, setEdit_name] = useState('')
+
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -20,7 +20,7 @@ const BiogasLabour = () => {
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5008/biogas/labour').then(res => {
+        axios.get('http://68.178.163.174:5008/biogas/others').then(res => {
             setData(res.data)
         })
     }
@@ -32,11 +32,15 @@ const BiogasLabour = () => {
     }, [])
 
 
+
+
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5008/biogas/labour/add', {
+        axios.post('http://68.178.163.174:5008/biogas/others/add', {
+
             name,
+
         }).then(res => {
             toast('Submitted')
             getData()
@@ -46,8 +50,9 @@ const BiogasLabour = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5008/biogas/labour/edit?id=${id}`, {
-            name: edit_name
+        axios.put(`http://68.178.163.174:5008/biogas/others/edit?id=${id}`, {
+            name: edit_name,
+
         })
             .then(res => {
                 getData()
@@ -62,7 +67,7 @@ const BiogasLabour = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5008/biogas/labour/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5008/biogas/others/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -76,7 +81,6 @@ const BiogasLabour = () => {
 
     return (
             <div className='details'>
-                <ToastContainer />
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
                     <div className="row gx-5 py-3 align-items-center">
@@ -89,7 +93,7 @@ const BiogasLabour = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Biogas</span> Labour</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2"> Others</span> List</h1>
                                 </a>
                             </div>
                         </div>
@@ -98,12 +102,7 @@ const BiogasLabour = () => {
                 </div>
 
                 <form>
-
-
-
-
-
-
+                
 
                     <label>Name:</label>
                     <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
@@ -121,6 +120,7 @@ const BiogasLabour = () => {
                     <thead>
                         <tr>
                             <th scope='col'>Name</th>
+
                             <th scope='col'>Edit/Delete</th>
 
                         </tr>
@@ -133,7 +133,6 @@ const BiogasLabour = () => {
 
                                     <td>
                                         <button onClick={() => {
-
 
                                             setEdit_id(calf.id)
                                             setEdit_name(calf.name)
@@ -177,15 +176,14 @@ const BiogasLabour = () => {
                 >
                     <form className='details'>
 
-
-
-
-
+                      
 
                         <label>Name:</label>
                         <input value={edit_name} onChange={e => setEdit_name(e.target.value)} className='input' type='text'
 
                         />
+
+
 
 
 
@@ -198,4 +196,4 @@ const BiogasLabour = () => {
     )
 }
 
-export default BiogasLabour
+export default BiogasOthers

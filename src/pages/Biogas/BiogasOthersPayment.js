@@ -1,42 +1,54 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { BiEdit } from 'react-icons/bi'
-import { MdDelete } from 'react-icons/md'
 import Modal from 'react-modal'
 import BioGasLayout from './BiogasLayout'
-import { toast, ToastContainer } from 'react-toastify'
+import { BiEdit } from 'react-icons/bi'
+import { MdDelete } from 'react-icons/md'
+import { toast } from 'react-toastify'
 
-const BiogasLabour = () => {
-    const [name, setName] = useState('')
-
+const BiogasOthersPayment = () => {
+    const [other, setOther] = useState('')
+    const [amount, setAmount] = useState('')
 
 
     const [edit_id, setEdit_id] = useState('')
-    const [edit_name, setEdit_name] = useState('')
+    const [edit_others, setEdit_others] = useState('')
+    const [edit_amount, setEdit_amount] = useState('')
 
     const [isOpen, setIsOpen] = useState(false)
 
-
+    const [others, setOthers] = useState([])
     const [data, setData] = useState([])
 
+
     const getData = () => {
-        axios.get('http://68.178.163.174:5008/biogas/labour').then(res => {
+        axios.get('http://68.178.163.174:5008/biogas/others_payment').then(res => {
             setData(res.data)
         })
     }
 
     useEffect(() => {
 
+        getOthers()
+
         getData()
 
     }, [])
+
+    const getOthers = () => {
+        axios.get(`http://68.178.163.174:5008/biogas/others`)
+            .then(res => {
+                setOthers(res.data)
+            })
+    }
 
 
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5008/biogas/labour/add', {
-            name,
+        axios.post('http://68.178.163.174:5008/biogas/others_payment/add', {
+            others_id: other,
+            payment: amount,
         }).then(res => {
             toast('Submitted')
             getData()
@@ -46,8 +58,9 @@ const BiogasLabour = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5008/biogas/labour/edit?id=${id}`, {
-            name: edit_name
+        axios.put(`http://68.178.163.174:5008/biogas/others_payment/edit?id=${id}`, {
+            others_id: edit_others,
+            payment: edit_amount,
         })
             .then(res => {
                 getData()
@@ -62,7 +75,7 @@ const BiogasLabour = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5008/biogas/labour/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5008/biogas/others_payment/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -76,7 +89,6 @@ const BiogasLabour = () => {
 
     return (
             <div className='details'>
-                <ToastContainer />
                 {/* <h2>Cow Purchase</h2> */}
                 <div className="container-fluid px-5 d-none d-lg-block">
                     <div className="row gx-5 py-3 align-items-center">
@@ -89,7 +101,7 @@ const BiogasLabour = () => {
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center justify-content-center">
                                 <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Biogas</span> Labour</h1>
+                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2"> Others</span> Payment</h1>
                                 </a>
                             </div>
                         </div>
@@ -105,12 +117,27 @@ const BiogasLabour = () => {
 
 
 
-                    <label>Name:</label>
-                    <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
+
+                
+
+                    <label>Select Others:</label>
+                    <select value={other} onChange={e => {
+                        setOther(e.target.value)
+                    }} className='select' >
+                        <option >Select</option>
+                        {
+                            others.map(shed => (
+
+                                <option value={shed.id}>{shed.name}</option>
+                            ))
+                        }
+                    </select>
+
+                
+                    <label>Amount:</label>
+                    <input value={amount} onChange={e => setAmount(e.target.value)} className='input' type='text'
 
                     />
-
-
 
                     <button onClick={addData} className='button'>Submit</button>
 
@@ -120,7 +147,8 @@ const BiogasLabour = () => {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th scope='col'>Name</th>
+                            <th scope='col'>Others ID</th>
+                            <th scope='col'>Amount</th>
                             <th scope='col'>Edit/Delete</th>
 
                         </tr>
@@ -129,14 +157,15 @@ const BiogasLabour = () => {
                         {
                             data.map(calf => (
                                 <tr>
-                                    <td>{calf.name}</td>
+                                    <td>{calf.others_id}</td>
+                                    <td>{calf.amount} BDT</td>
 
                                     <td>
                                         <button onClick={() => {
 
-
                                             setEdit_id(calf.id)
-                                            setEdit_name(calf.name)
+                                            setEdit_amount(calf.payment)
+                                            setEdit_others(calf.others_id)
                                             setIsOpen(true)
                                         }} className='btn btn-secondary mx-2'>
                                             <BiEdit />
@@ -177,15 +206,28 @@ const BiogasLabour = () => {
                 >
                     <form className='details'>
 
+                 
+                
+                    <label>Select Others:</label>
+                    <select value={edit_others} onChange={e => {
+                        setEdit_others(e.target.value)
+                    }} className='select' >
+                        <option >Select</option>
+                        {
+                            others.map(shed => (
+
+                                <option value={shed.id}>{shed.name}</option>
+                            ))
+                        }
+                    </select>
+
+                
+                    <label>Amount:</label>
+                    <input value={edit_amount} onChange={e => setEdit_amount(e.target.value)} className='input' type='text'
+
+                    />
 
 
-
-
-
-                        <label>Name:</label>
-                        <input value={edit_name} onChange={e => setEdit_name(e.target.value)} className='input' type='text'
-
-                        />
 
 
 
@@ -198,4 +240,4 @@ const BiogasLabour = () => {
     )
 }
 
-export default BiogasLabour
+export default BiogasOthersPayment

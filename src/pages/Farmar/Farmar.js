@@ -63,6 +63,14 @@ function Farmar() {
       <div style={{ padding: '20px' }}></div>
 
       <div className="row1">
+      <Card
+          imgSrc={biogas}
+          imgAlt="Card Image 1"
+          title="Biogas"
+          description="This section provides biogas related information. Customer information, environmental information and income."
+          buttonText="Click Here"
+          link="biogas/biogas_customer"
+        />
         <Card
           imgSrc={cowimage}
           imgAlt="Card Image 1"
@@ -117,14 +125,7 @@ function Farmar() {
           link="report"
         />
 
-         <Card
-          imgSrc={biogas}
-          imgAlt="Card Image 1"
-          title="Biogas"
-          description="This is the card description section. You can add more details about the product here"
-          buttonText="Click Here"
-          link="biogas/biogas_customer"
-        />
+         
 
 
       </div>

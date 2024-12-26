@@ -8,50 +8,57 @@ import { MdReport } from 'react-icons/md'
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 import { CgArrowBottomLeft } from 'react-icons/cg'
-import { useLocation } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Sidebar from '../../Components/Sidebar'
 
 const BioGasLayout = ({children}) => {
     const sidebarElements = [
         {
           name: 'Expenses',
-          pathname: '/biogas/expenses',
+          pathname: '',
           icon: BiMoney,
           submenu: [
             {
               name: 'Labour',
-              // pathname: '/calf/labour'
+              pathname: '/biogas/labour'
             },
             {
               name: 'Labour Payment',
-              // pathname: '/calf/labour_payment'
+              pathname: '/biogas/labour_payment'
             },
             {
               name: 'Others Expenses',
-              // pathname: '/calf/others'
+              pathname: '/biogas/others'
             },
             {
               name: 'Others Payment',
-              // pathname: '/calf/others_payment'
+              pathname: '/biogas/others_payment'
             },
           ]
         },
+        {
+          name: 'Customer',
+          pathname: '/biogas/biogas_customer',
+          icon: BsPeople,
+          submenu: []
+        },
         
         {
-          name: 'Selling',
-          // pathname: '/calf/selling',
+          name: 'Income',
+          pathname: '/biogas/income',
           icon: BiMoney,
           submenu: []
         },
         {
-          name: 'Customer',
-          // pathname: '/calf/customer',
+          name: 'Environmental Info',
+          pathname: '/biogas/environmental_info',
           icon: BsPeople,
           submenu: []
         },
+        
         {
           name: 'Report',
-          // pathname: '/calf/report',
+          pathname: '/biogas/report',
           icon: MdReport,
           submenu: []
         },
@@ -60,9 +67,9 @@ const BioGasLayout = ({children}) => {
       
       return (
         <div className='layout d-flex'>
-          <Sidebar className='calf' elements={sidebarElements} name={'Calf'} />
+          <Sidebar className='calf' elements={sidebarElements} name={'Biogas'} />
           <div className='ms-4 vw-100 d-flex justify-content-center'>
-            {children}
+            <Outlet />
           </div>
           
         </div>

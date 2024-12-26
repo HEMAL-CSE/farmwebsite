@@ -89,6 +89,13 @@ import CowOthersPayment from './pages/Cow/CowOthersPayment';
 import CalfOthers from './pages/Calf/CalfOthers';
 import CalfOthersPayment from './pages/Calf/CalfOthersPayment';
 import { BioGas, BioGasCustomer } from './pages/Biogas/BioGasCustomer';
+import BiogasLabour from './pages/Biogas/BiogasLabour';
+import BiogasLabourPayment from './pages/Biogas/BiogasLabourPayment';
+import BiogasOthers from './pages/Biogas/BiogasOthers';
+import BiogasOthersPayment from './pages/Biogas/BiogasOthersPayment';
+import BiogasSelling from './pages/Biogas/BiogasSelling';
+import BiogasEnvironmentInfo from './pages/Biogas/BiogasEnvironmentInfo';
+import BioGasLayout from './pages/Biogas/BiogasLayout';
 
 
 function App() {
@@ -114,6 +121,8 @@ function App() {
         <Route element={<CalfTreatment />} exact path='/calf/treatment' />
         <Route element={<CalfOthers />} exact path='/calf/others' />
         <Route element={<CalfOthersPayment />} exact path='/calf/others_payment' />
+        <Route element={<CalfLabour />} exact path='/calf/labour' />
+
 
 
         {/* <Route element={<BeefFattening/>} exact path='/beeffattening'/>n */}
@@ -196,9 +205,16 @@ function App() {
         <Route element={<DoctorCalf />} exact path='/doctor/calf' />
 
         {/* BioGas Section Start */}
+        <Route element={<BioGasLayout />} exact path='/biogas/'>
         <Route element={<BioGasCustomer/>} exact path='/biogas/biogas_customer'/>
-        <Route element={<CalfLabour />} exact path='/calf/labour' />
-
+        <Route element={<BiogasLabour />} exact path='/biogas/labour' />
+        <Route element={<BiogasLabourPayment />} exact path='/biogas/labour_payment' />
+        <Route element={<BiogasOthers />} exact path='/biogas/others' />
+        <Route element={<BiogasOthersPayment />} exact path='/biogas/others_payment' />
+        <Route element={<BiogasSelling />} exact path='/biogas/income' />
+        <Route element={<BiogasEnvironmentInfo />} exact path='/biogas/environmental_info' />
+        </Route>
+        
 
 
       
