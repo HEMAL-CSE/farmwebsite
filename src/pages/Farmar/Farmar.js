@@ -9,6 +9,7 @@ import beeffattening from '../Home/images/FarmarDashboardImage/beeffattening.jpg
 import dairy from '../Home/images/FarmarDashboardImage/dairy.jpg'
 import vermicompost from '../Home/images/FarmarDashboardImage/vermicompost.jpg'
 import report from '../Home/images/FarmarDashboardImage/report.png'
+import biogas from '../Home/images/FarmarDashboardImage/biogas.jpg'
 function Farmar() {
   return (
 
@@ -115,6 +116,16 @@ function Farmar() {
           buttonText="Click Here"
           link="report"
         />
+
+         <Card
+          imgSrc={biogas}
+          imgAlt="Card Image 1"
+          title="Biogas"
+          description="This is the card description section. You can add more details about the product here"
+          buttonText="Click Here"
+          link="biogas/biogas_customer"
+        />
+
 
       </div>
     </div>

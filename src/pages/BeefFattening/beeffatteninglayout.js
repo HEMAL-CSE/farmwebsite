@@ -107,6 +107,7 @@ const BeefFatteningLayout = ({children}) => {
             icon: MdReport,
             submenu: []
         }
+
         
       ]
       
@@ -118,6 +119,7 @@ const BeefFatteningLayout = ({children}) => {
           </div>
           
         </div>
+
       )
 }
 

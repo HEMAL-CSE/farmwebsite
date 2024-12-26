@@ -88,6 +88,8 @@ import CowOthers from './pages/Cow/CowOthers';
 import CowOthersPayment from './pages/Cow/CowOthersPayment';
 import CalfOthers from './pages/Calf/CalfOthers';
 import CalfOthersPayment from './pages/Calf/CalfOthersPayment';
+import { BioGas, BioGasCustomer } from './pages/Biogas/BioGasCustomer';
+
 
 function App() {
   return (
@@ -192,6 +194,12 @@ function App() {
         <Route element={<DoctorBeef />} exact path='/doctor/beef' />
         <Route element={<DoctorDairy />} exact path='/doctor/milk' />
         <Route element={<DoctorCalf />} exact path='/doctor/calf' />
+
+        {/* BioGas Section Start */}
+        <Route element={<BioGasCustomer/>} exact path='/biogas/biogas_customer'/>
+        <Route element={<CalfLabour />} exact path='/calf/labour' />
+
+
 
       
       </Routes>
