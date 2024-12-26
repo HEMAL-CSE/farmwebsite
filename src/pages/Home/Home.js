@@ -1,5 +1,5 @@
 import React from 'react'
-import about1 from './images/about1.jpg'
+import about2 from './images/about2.jpg'
 // import about from './images/'
 import bg_product_1 from './images/bg-product-1.png'
 import bg_product_2 from './images/bg-product-2.png'
@@ -43,14 +43,13 @@ const Home = () => {
                     <div className="col-lg-3">
                         <div className="d-flex align-items-center justify-content-start">
                             <BsPhoneVibrate className='text-success2 fs-1 me-2' />
-                            <h2 className="mb-0">+01710-951097 </h2>
+                            <h2 className="mb-0">+8801819362100 </h2>
                         </div>
                     </div>
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="#" className="navbar-brand ms-lg-5">
-                                <h6 className="m-0 display-5 text-success2"><span className="text-secondary">Tania VermiCompost</span> <br /> Organic
-                                    Fertilizer Center.</h6>
+                                <h6 className="m-0 display-5 text-success2"><span className="text-secondary">Allied Agro</span> <br /></h6>
                             </a>
                         </div>
                     </div>
@@ -161,7 +160,7 @@ const Home = () => {
                         <div className="col-md-6">
                             <div className="bg-success2 bg-vegetable d-flex flex-column justify-content-center p-5" style={{ height: '300px' }}>
                                 <h3 className="text-white mb-3">Organic VermiCompost</h3>
-                                <p className="text-white"> Vermicompost is a high-quality organic fertilizer produced by earthworms feeding on organic waste. 
+                                <p className="text-white"> Vermicompost is a high-quality organic fertilizer produced by earthworms feeding on organic waste.
                                     It's a nutrient-rich soil amendment that improves soil structure, water retention, and overall plant health. </p>
                                 <a className="text-white fw-bold" href="">Read More<BiArrowToRight className='ms-2' /></a>
                             </div>
@@ -170,8 +169,8 @@ const Home = () => {
                             <div className="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style={{ height: '300px' }}>
                                 <h3 className="text-white mb-3">Healthy Plants</h3>
                                 <p className="text-white">Nurturing Healthy Plants with Organic Vermicompost
-                                Vermicompost, a natural, nutrient-rich fertilizer, is a game-changer for gardeners and plant enthusiasts. 
-                                Produced by earthworms feeding on organic waste, it offers a myriad of benefits for your plants.</p>
+                                    Vermicompost, a natural, nutrient-rich fertilizer, is a game-changer for gardeners and plant enthusiasts.
+                                    Produced by earthworms feeding on organic waste, it offers a myriad of benefits for your plants.</p>
                                 <a className="text-white fw-bold" href="">Read More<BiArrowFromRight className='ms-2' /></a>
                             </div>
                         </div>
@@ -187,7 +186,7 @@ const Home = () => {
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <div className="d-flex h-100  border-success2 pt-0">
-                                <img className="img-fluid mt-auto mx-auto h-100" src={about1} />
+                                <img className="img-fluid mt-auto mx-auto h-100" src={about2} />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">
@@ -195,32 +194,32 @@ const Home = () => {
                                 <h3 className="text-success2 text-uppercase">About Us</h3>
                                 <h3 className="display-5">We Produce Organic Vermicompost.</h3>
                             </div>
-                            <p className="mb-4">At Tania Vermicompost and Organic Fertilizer Center, we are dedicated to creating high-quality 
+                            <p className="mb-4">At Allied Agro, we are dedicated to creating high-quality
                                 organic vermicompost that enriches the soil and promotes sustainable agricultural practices.
-                                 Our vermicomposting process utilizes earthworms to break down organic waste materials, 
+                                Our vermicomposting process utilizes earthworms to break down organic waste materials,
                                 transforming them into nutrient-rich compost that is free from harmful chemicals and additives.</p>
                             <div className="row gx-5 gy-4">
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-seedling display-1 text-secondary"></i> */}
                                     <svg width="0" height="0">
-                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                                        <stop stopColor="green" offset="10%" />
-                                        <stop stopColor="yellow" offset="100%" />
-                                    </linearGradient>
-                                </svg>
-                                <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
+                                        <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                            <stop stopColor="green" offset="10%" />
+                                            <stop stopColor="yellow" offset="100%" />
+                                        </linearGradient>
+                                    </svg>
+                                    <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>100% Organic</h4>
                                     <p className="mb-0">Sustainable Vermicompost Production: 100% Organic Solutions for Soil Health, that helps to growing healthy plants.</p>
                                 </div>
                                 <div className="col-sm-6">
                                     {/* <i className="fa fa-award display-1 text-secondary"></i> */}
                                     <svg width="0" height="0">
-                                    <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                                        <stop stopColor="green" offset="10%" />
-                                        <stop stopColor="yellow" offset="100%" />
-                                    </linearGradient>
-                                </svg>
-                                <FaAward size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
+                                        <linearGradient id="green-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                                            <stop stopColor="green" offset="10%" />
+                                            <stop stopColor="yellow" offset="100%" />
+                                        </linearGradient>
+                                    </svg>
+                                    <FaAward size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                     <h4>Award Winning</h4>
                                     <p className="mb-0">Recognized Excellence: Award-Winning Innovations in Organic Vermicompost Production in Bangladesh.</p>
                                 </div>
@@ -320,9 +319,9 @@ const Home = () => {
                         <div className="col-lg-4 col-md-6">
                             <div className="mb-3">
                                 <h1 className=" text-success2 text-uppercase fw-bold">Services</h1>
-                               
+
                             </div>
-                            <p className="mb-4">From this Farm Management website, we serves several modules, like VermiCompost, Breeding, <br/>Dairy, Beef fattening, Doctors and farming plans. </p>
+                            <p className="mb-4">From this Farm Management website, we serves several modules, like VermiCompost, Breeding, <br />Dairy, Beef fattening, Doctors and farming plans. </p>
                             <a href="" className="btn btn-success2 py-md-3 px-md-5 text-white">Contact Us</a>
                         </div>
 
@@ -337,7 +336,7 @@ const Home = () => {
                                 </svg>
                                 <FaSeedling size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>VermiCompost</h4>
-                                <p className="mb-0 text-justify" >This Section provides VermiCompost management related modules like Earthworm purchase, 
+                                <p className="mb-0 text-justify" >This Section provides VermiCompost management related modules like Earthworm purchase,
                                     expenses, production, vermicompost selling and environment realted information.</p>
                             </div>
                         </div>
@@ -352,7 +351,7 @@ const Home = () => {
                                 </svg>
                                 <FaCow size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Breeding</h4>
-                                <p className="mb-0 text-justify">This Section provides Breeding management related modules like 
+                                <p className="mb-0 text-justify">This Section provides Breeding management related modules like
                                     cow purchase, delivary, expenses, treatment, healthcare and cow selling and feeding realted information.</p>
                             </div>
                         </div>
@@ -367,8 +366,8 @@ const Home = () => {
                                 </svg>
                                 <GiSteak size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Beef Fattening</h4>
-                                <p className="mb-0">This Section provides Beef Fattening management related modules like 
-                                beef purchase, expenses, treatment, slaughter, healthcare, customers and feeding <br/>realted information.</p>
+                                <p className="mb-0">This Section provides Beef Fattening management related modules like
+                                    beef purchase, expenses, treatment, slaughter, healthcare, customers and feeding <br />realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -382,8 +381,8 @@ const Home = () => {
                                 </svg>
                                 <BsBucket size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Dairy</h4>
-                                <p className="mb-0 text-justify">This Section provides Dairy management related modules like 
-                                milk purchase, expenses, treatment, production, healthcare, customer list and feeding <br/>realted information.</p>
+                                <p className="mb-0 text-justify">This Section provides Dairy management related modules like
+                                    milk purchase, expenses, treatment, production, healthcare, customer list and feeding <br />realted information.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
@@ -397,8 +396,8 @@ const Home = () => {
                                 </svg>
                                 <GiGoat size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Goat</h4>
-                                <p className="mb-0 text-justify">This Section provides Goat management related modules like 
-                                goat purchase, expenses, treatment, production, healthcare, customer list and feeding <br/>realted information.</p>
+                                <p className="mb-0 text-justify">This Section provides Goat management related modules like
+                                    goat purchase, expenses, treatment, production, healthcare, customer list and feeding <br />realted information.</p>
                             </div>
                         </div>
 
@@ -413,8 +412,8 @@ const Home = () => {
                                 </svg>
                                 <GiRooster size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Chicken</h4>
-                                <p className="mb-0">This Section provides Chicken management related modules like 
-                                purchase, expenses, treatment, production, healthcare, customer list and feeding realted information.</p>
+                                <p className="mb-0">This Section provides Chicken management related modules like
+                                    purchase, expenses, treatment, production, healthcare, customer list and feeding realted information.</p>
                             </div>
                         </div>
 
@@ -429,7 +428,7 @@ const Home = () => {
                                 </svg>
                                 <GiFarmer size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Farming Plans</h4>
-                                <p className="mb-0">This Section provides Farming Plan for an Organic Vermicompost Center. Like, Site Selection and Setup, 
+                                <p className="mb-0">This Section provides Farming Plan for an Organic Vermicompost Center. Like, Site Selection and Setup,
                                     cowdung, earthWorm procurement, Vermicompost Production Process, lastly marketing and sells.</p>
                             </div>
                         </div>
@@ -445,8 +444,7 @@ const Home = () => {
                                 </svg>
                                 <FaUserDoctor size={60} className='mb-4 ' style={{ fill: 'url(#green-gradient)' }} />
                                 <h4>Doctor</h4>
-                                <p className="mb-0">This Section provides Doctors service for Tania Vermicompost and Organic   
-                                Fertilizer Center. Doctor service provide in several modules, like breeding cow, calf, beef fattening and dairy.</p>
+                                <p className="mb-0">This Section provides Doctors service for Allied Agro. Doctor service provide in several modules, like breeding cow, calf, beef fattening and dairy.</p>
                             </div>
                         </div>
 
@@ -484,9 +482,9 @@ const Home = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="d-block bg-white h-100 text-center p-5 pb-lg-0">
-                                <p>People choose Tania Vermicompost and Organic Fertilizer Center for several reasons:
-                                    Tania Vermicompost and Organic Fertilizer Center offers a reliable, sustainable, 
-                                    and affordable solution for improving soil health and crop yields, 
+                                <p>People choose Allied Agro for several reasons:
+                                    Allied Agro offers a reliable, sustainable,
+                                    and affordable solution for improving soil health and crop yields,
                                     making it a popular choice for farmers and gardeners in Bangladesh and helps to growing healthy plants.</p>
                                 <img className="img-fluid" src={feature} alt="" />
                             </div>
@@ -515,78 +513,78 @@ const Home = () => {
 
             {/* <!-- Contact Start --> */}
             <section class="contact">
-    <div class="content">
-        <h2>Contact Us</h2>
-    </div>
-
-    <div class="container1">
-        <div class="contactInfo">
-            <div class="box">
-                <div class="icon">
-                    <FaMapMarkerAlt />
+                <div class="content">
+                    <h2>Contact Us</h2>
                 </div>
-                    <div class="text">
-                        <h3>Location</h3>
-                        <p>Tania Vermicompost and Organic Fertilizer Center <br/>
-                         Shovarampur Board Office, Faridpur Sadar, Faridpur.</p>
+
+                <div class="container1">
+                    <div class="contactInfo">
+                        <div class="box">
+                            <div class="icon">
+                                <FaMapMarkerAlt />
+                            </div>
+                            <div class="text">
+                                <h3>Location</h3>
+                                <p>Allied Agro <br />
+                                    04 No. Muradpur Union, Word no 6, Sitakundua, Chittagong.</p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="icon">
+                                <BiEnvelope />
+                            </div>
+                            <div class="text">
+                                <h3>Email</h3>
+                                <p>alliedagro@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="icon"> <BsTelephone /></div>
+                            <div class="text">
+                                <h3>Telephone</h3>
+                                <p>+88 02-58054685</p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="icon"><PiPhone /></div>
+                            <div class="text">
+                                <h3>Phone</h3>
+                                <p>+88 01710-951097</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="box">
-                    <div class="icon"> 
-                        <BiEnvelope />
+                    {/* <!-- Contact form --> */}
+                    <div class="contactForm">
+                        <form>
+                            <h2>Send Message</h2>
+                            <div class="inputBox">
+                                <input type="text" name="" required="required" />
+                                <span>Full Name</span>
+                            </div>
+
+                            <div class="inputBox">
+                                <input type="email" name="" required="required" />
+                                <span>Email</span>
+                            </div>
+
+                            <div class="inputBox">
+                                <textarea required="required"></textarea>
+                                <span>Type your Message..</span>
+                            </div>
+
+                            <div class="inputBox">
+                                <input type="submit" name="" value="Send" />
+                            </div>
+                        </form>
                     </div>
-                        <div class="text">
-                            <h3>Email</h3>
-                            <p>tania124@gmail.com</p>
-                        </div>
-                </div>
 
-                <div class="box">
-                    <div class="icon"> <BsTelephone /></div>
-                    <div class="text">
-                        <h3>Telephone</h3>
-                        <p>+88 02-58054685</p>
-                    </div>
-                </div>
-                 
-                <div class="box">
-                    <div class="icon"><PiPhone /></div> 
-                        <div class="text">
-                            <h3>Phone</h3>
-                            <p>+88 01710-951097</p>
-                        </div>
-                </div>
-            </div>
-                
-                {/* <!-- Contact form --> */}
-                <div class="contactForm">
-                    <form>
-                        <h2>Send Message</h2>
-                        <div class="inputBox">
-                            <input type="text" name="" required="required" />
-                            <span>Full Name</span>
-                        </div>
 
-                        <div class="inputBox">
-                            <input type="email" name="" required="required" />
-                            <span>Email</span>
-                        </div>
-                        
-                        <div class="inputBox">
-                            <textarea required="required"></textarea>
-                            <span>Type your Message..</span>
-                        </div>
-
-                        <div class="inputBox">
-                            <input type="submit" name="" value="Send" />
-                        </div>
-                    </form>
                 </div>
-
-            
-        </div>
-</section>
+            </section>
             {/* <!-- Contact End --> */}
 
 
@@ -617,7 +615,7 @@ const Home = () => {
                                         <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://www.facebook.com/"><FaTwitter className='text-white' /></a>
                                         <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><FaFacebook className='text-white' /></a>
                                         <a className="btn btn-secondary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><FaLinkedin className='text-white' /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-white'/></a>
+                                        <a className="btn btn-secondary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><FaYoutube className='text-white' /></a>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
