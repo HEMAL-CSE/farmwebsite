@@ -552,7 +552,7 @@ const Home = () => {
                             <div class="icon"><PiPhone /></div>
                             <div class="text">
                                 <h3>Phone</h3>
-                                <p>+88 01710-951097</p>
+                                <p>+88 01819-362100</p>
                             </div>
                         </div>
                     </div>
