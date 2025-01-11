@@ -20,7 +20,7 @@ const BiogasLabour = () => {
     const [data, setData] = useState([])
 
     const getData = () => {
-        axios.get('http://68.178.163.174:5008/biogas/labour').then(res => {
+        axios.get('http://68.178.163.174:5010/biogas/labour').then(res => {
             setData(res.data)
         })
     }
@@ -35,7 +35,7 @@ const BiogasLabour = () => {
     const addData = (e) => {
         e.preventDefault()
 
-        axios.post('http://68.178.163.174:5008/biogas/labour/add', {
+        axios.post('http://68.178.163.174:5010/biogas/labour/add', {
             name,
         }).then(res => {
             toast('Submitted')
@@ -46,7 +46,7 @@ const BiogasLabour = () => {
     const editData = (e, id) => {
         e.preventDefault()
 
-        axios.put(`http://68.178.163.174:5008/biogas/labour/edit?id=${id}`, {
+        axios.put(`http://68.178.163.174:5010/biogas/labour/edit?id=${id}`, {
             name: edit_name
         })
             .then(res => {
@@ -62,7 +62,7 @@ const BiogasLabour = () => {
         e.preventDefault()
 
         if (window.confirm('Do you want to delete this?')) {
-            axios.delete(`http://68.178.163.174:5008/biogas/labour/delete?id=${id}`)
+            axios.delete(`http://68.178.163.174:5010/biogas/labour/delete?id=${id}`)
                 .then(res => {
                     toast('Deleted')
                     getData()
@@ -75,30 +75,107 @@ const BiogasLabour = () => {
     }
 
     return (
-            <div className='details'>
-                <ToastContainer />
-                {/* <h2>Cow Purchase</h2> */}
-                <div className="container-fluid px-5 d-none d-lg-block">
-                    <div className="row gx-5 py-3 align-items-center">
-                        <div className="col-lg-3">
-                            {/* <div className="d-flex align-items-center justify-content-start">
+        <div className='details'>
+            <ToastContainer />
+            {/* <h2>Cow Purchase</h2> */}
+            <div className="container-fluid px-5 d-none d-lg-block">
+                <div className="row gx-5 py-3 align-items-center">
+                    <div className="col-lg-3">
+                        {/* <div className="d-flex align-items-center justify-content-start">
                               <BsPhoneVibrate className='text-success2 fs-1 me-2' />
                               <h2 className="mb-0">+012 345 6789</h2>
                           </div> */}
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="d-flex align-items-center justify-content-center">
-                                <a href="index.html" className="navbar-brand ms-lg-5">
-                                    <h1 className="m-2 display-4 text-success2"><span className="text-success2">Biogas</span> Labour</h1>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
+                    <div className="col-lg-6">
+                        <div className="d-flex align-items-center justify-content-center">
+                            <a href="index.html" className="navbar-brand ms-lg-5">
+                                <h1 className="m-2 display-4 text-success2"><span className="text-success2">Biogas</span> Labour</h1>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-                <form>
+            <form>
 
+
+
+
+
+
+
+                <label>Name:</label>
+                <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
+
+                />
+
+
+
+                <button onClick={addData} className='button'>Submit</button>
+
+            </form>
+
+
+            <table className='table'>
+                <thead>
+                    <tr>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Edit/Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        data.map(calf => (
+                            <tr>
+                                <td>{calf.name}</td>
+
+                                <td>
+                                    <button onClick={() => {
+
+
+                                        setEdit_id(calf.id)
+                                        setEdit_name(calf.name)
+                                        setIsOpen(true)
+                                    }} className='btn btn-secondary mx-2'>
+                                        <BiEdit />
+                                    </button>
+                                    <button onClick={e => deleteData(e, calf.id)} className='btn btn-danger'>
+                                        <MdDelete />
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+
+            <Modal
+                style={{
+                    content: {
+                        width: "80%",
+                        height: "80%",
+                        zIndex: 10,
+                        top: "5%",
+                        left: "10%",
+                        right: "10%",
+                        bottom: "5%",
+                        overflow: "auto",
+                        WebkitBoxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
+                        MozBoxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
+                        boxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
+                        borderRadius: "5px",
+                        border: "1px solid #ccc",
+                    },
+                    overlay: { zIndex: 10000 }
+                }}
+                isOpen={isOpen}
+                onRequestClose={() => {
+                    setIsOpen(false)
+                }}
+            >
+                <form className='details'>
 
 
 
@@ -106,95 +183,18 @@ const BiogasLabour = () => {
 
 
                     <label>Name:</label>
-                    <input value={name} onChange={e => setName(e.target.value)} className='input' type='text'
+                    <input value={edit_name} onChange={e => setEdit_name(e.target.value)} className='input' type='text'
 
                     />
 
 
 
-                    <button onClick={addData} className='button'>Submit</button>
+                    <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
 
                 </form>
+            </Modal>
 
-
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th scope='col'>Name</th>
-                            <th scope='col'>Edit/Delete</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            data.map(calf => (
-                                <tr>
-                                    <td>{calf.name}</td>
-
-                                    <td>
-                                        <button onClick={() => {
-
-
-                                            setEdit_id(calf.id)
-                                            setEdit_name(calf.name)
-                                            setIsOpen(true)
-                                        }} className='btn btn-secondary mx-2'>
-                                            <BiEdit />
-                                        </button>
-                                        <button onClick={e => deleteData(e, calf.id)} className='btn btn-danger'>
-                                            <MdDelete />
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-
-                <Modal
-                    style={{
-                        content: {
-                            width: "80%",
-                            height: "80%",
-                            zIndex: 10,
-                            top: "5%",
-                            left: "10%",
-                            right: "10%",
-                            bottom: "5%",
-                            overflow: "auto",
-                            WebkitBoxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
-                            MozBoxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
-                            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
-                            borderRadius: "5px",
-                            border: "1px solid #ccc",
-                        },
-                        overlay: { zIndex: 10000 }
-                    }}
-                    isOpen={isOpen}
-                    onRequestClose={() => {
-                        setIsOpen(false)
-                    }}
-                >
-                    <form className='details'>
-
-
-
-
-
-
-                        <label>Name:</label>
-                        <input value={edit_name} onChange={e => setEdit_name(e.target.value)} className='input' type='text'
-
-                        />
-
-
-
-                        <button onClick={e => editData(e, edit_id)} className='button'>Submit</button>
-
-                    </form>
-                </Modal>
-
-            </div>
+        </div>
     )
 }
 
