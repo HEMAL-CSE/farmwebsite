@@ -158,7 +158,7 @@ const BiogasOthersPayment = () => {
                             data.map(calf => (
                                 <tr>
                                     <td>{calf.others_id}</td>
-                                    <td>{calf.amount} BDT</td>
+                                    <td>{calf.payment} BDT</td>
 
                                     <td>
                                         <button onClick={() => {
