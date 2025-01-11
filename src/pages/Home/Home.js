@@ -1,5 +1,6 @@
 import React from 'react'
 import about2 from './images/about2.jpg'
+import about from './images/about1.jpg'
 // import about from './images/'
 import bg_product_1 from './images/bg-product-1.png'
 import bg_product_2 from './images/bg-product-2.png'
@@ -43,13 +44,13 @@ const Home = () => {
                     <div className="col-lg-3">
                         <div className="d-flex align-items-center justify-content-start">
                             <BsPhoneVibrate className='text-success2 fs-1 me-2' />
-                            <h2 className="mb-0">+8801819362100 </h2>
+                            <h1 className="mb-0">+8801710-951097</h1>
                         </div>
                     </div>
                     <div className="col-lg-6">
                         <div className="d-flex align-items-center justify-content-center">
                             <a href="#" className="navbar-brand ms-lg-5">
-                                <h6 className="m-0 display-5 text-success2"><span className="text-secondary">Allied Agro</span> <br /></h6>
+                                <h6 className="m-0 display-5 text-success2"><span className="text-secondary">Tania VermiCompost and </span> <br/> Organic Fertilizer Center</h6>
                             </a>
                         </div>
                     </div>
@@ -186,7 +187,7 @@ const Home = () => {
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <div className="d-flex h-100  border-success2 pt-0">
-                                <img className="img-fluid mt-auto mx-auto h-100" src={about2} />
+                                <img className="img-fluid mt-auto mx-auto h-100" src={about} />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">
@@ -194,7 +195,8 @@ const Home = () => {
                                 <h3 className="text-success2 text-uppercase">About Us</h3>
                                 <h3 className="display-5">We Produce Organic Vermicompost.</h3>
                             </div>
-                            <p className="mb-4">At Allied Agro, we are dedicated to creating high-quality
+                            <p className="mb-4">At Tania VermiCompost and
+                            Organic Fertilizer Center, we are dedicated to creating high-quality
                                 organic vermicompost that enriches the soil and promotes sustainable agricultural practices.
                                 Our vermicomposting process utilizes earthworms to break down organic waste materials,
                                 transforming them into nutrient-rich compost that is free from harmful chemicals and additives.</p>
@@ -482,8 +484,9 @@ const Home = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="d-block bg-white h-100 text-center p-5 pb-lg-0">
-                                <p>People choose Allied Agro for several reasons:
-                                    Allied Agro offers a reliable, sustainable,
+                                <p>People choose Tania VermiCompost and
+                                Organic Fertilizer Center for several reasons:
+                                Tania VermiCompost offers a reliable, sustainable,
                                     and affordable solution for improving soil health and crop yields,
                                     making it a popular choice for farmers and gardeners in Bangladesh and helps to growing healthy plants.</p>
                                 <img className="img-fluid" src={feature} alt="" />
@@ -525,8 +528,9 @@ const Home = () => {
                             </div>
                             <div class="text">
                                 <h3>Location</h3>
-                                <p>Allied Agro <br />
-                                    04 No. Muradpur Union, Word no 6, Sitakundua, Chittagong.</p>
+                                <p>Tania VermiCompost and
+                                Organic Fertilizer Center. <br />
+                                    Shovarampur Board Office, Faridpur Sadar, Faridpur.</p>
                             </div>
                         </div>
 
@@ -536,7 +540,7 @@ const Home = () => {
                             </div>
                             <div class="text">
                                 <h3>Email</h3>
-                                <p>alliedagro@gmail.com</p>
+                                <p>taniavermicompost@gmail.com</p>
                             </div>
                         </div>
 
