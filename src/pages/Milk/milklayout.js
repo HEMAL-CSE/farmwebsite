@@ -103,7 +103,13 @@ export const Milklayout = ({children}) => {
         pathname: '/milk/report',
         icon: MdReport,
         submenu: []
-    }
+    },
+    {
+        name: 'Log Out',
+        pathname: '/login',
+        icon: BiLogOut,
+        submenu: []
+    },
     
   ]
   

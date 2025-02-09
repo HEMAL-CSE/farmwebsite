@@ -105,7 +105,13 @@ const Cowlayout = ({children}) => {
             pathname: '/cow/report',
             icon: MdReport,
             submenu: []
-        }
+        },
+        {
+            name: 'Log Out',
+            pathname: '/login',
+            icon: BiLogOut,
+            submenu: []
+        },
         
       ]
       

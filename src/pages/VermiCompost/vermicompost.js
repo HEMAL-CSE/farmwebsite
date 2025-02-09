@@ -123,6 +123,12 @@ const Vermicompost = ({children}) => {
           icon: MdReport,
           submenu: []
         },
+        {
+          name: 'Log Out',
+          pathname: '/login',
+          icon: BiLogOut,
+          submenu: []
+      },
         
       ])
 
