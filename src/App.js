@@ -96,6 +96,7 @@ import BiogasOthersPayment from './pages/Biogas/BiogasOthersPayment';
 import BiogasSelling from './pages/Biogas/BiogasSelling';
 import BiogasEnvironmentInfo from './pages/Biogas/BiogasEnvironmentInfo';
 import BioGasLayout from './pages/Biogas/BiogasLayout';
+import { BiogasMonitoring } from './pages/Biogas/BiogasMonitoring';
 
 
 function App() {
@@ -213,6 +214,8 @@ function App() {
         <Route element={<BiogasOthersPayment />} exact path='/biogas/others_payment' />
         <Route element={<BiogasSelling />} exact path='/biogas/income' />
         <Route element={<BiogasEnvironmentInfo />} exact path='/biogas/environmental_info' />
+        <Route element={<BiogasMonitoring />} exact path='/biogas/biogas_monitoring' />
+        
         </Route>
         
 

@@ -4,7 +4,7 @@ import { BsPeople, BsSpeedometer } from 'react-icons/bs'
 import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiMoney, BiSolidArrowToBottom } from 'react-icons/bi'
 import { FaCow, FaUserDoctor } from 'react-icons/fa6'
 import { GiBottomRight3dArrow, GiDoctorFace } from 'react-icons/gi'
-import { MdReport } from 'react-icons/md'
+import { MdMonitor, MdReport } from 'react-icons/md'
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 import { CgArrowBottomLeft } from 'react-icons/cg'
@@ -53,6 +53,12 @@ const BioGasLayout = ({children}) => {
           name: 'Environmental Info',
           pathname: '/biogas/environmental_info',
           icon: BsPeople,
+          submenu: []
+        },
+        {
+          name: 'Biogas Monitoring',
+          pathname: '/biogas/biogas_monitoring',
+          icon: MdMonitor,
           submenu: []
         },
         
