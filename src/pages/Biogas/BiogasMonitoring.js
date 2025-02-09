@@ -6,7 +6,7 @@ export const BiogasMonitoring = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get(`https://api.thingspeak.com/channels/2397663/feeds.json?api_key=8O9X7FAXYPRSIWE6`)
+        axios.get(`https://api.thingspeak.com/channels/2483425/feeds.json?api_key=5HIBMTTPWFIY1YCA`)
             .then(res => {
                 setData(res.data.feeds)
             })
