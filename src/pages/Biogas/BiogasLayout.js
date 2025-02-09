@@ -1,7 +1,7 @@
 import React from 'react'
 import './Biogas.css'
 import { BsPeople, BsSpeedometer } from 'react-icons/bs'
-import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiMoney, BiSolidArrowToBottom } from 'react-icons/bi'
+import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiLogOut, BiMoney, BiSolidArrowToBottom } from 'react-icons/bi'
 import { FaCow, FaUserDoctor } from 'react-icons/fa6'
 import { GiBottomRight3dArrow, GiDoctorFace } from 'react-icons/gi'
 import { MdMonitor, MdReport } from 'react-icons/md'

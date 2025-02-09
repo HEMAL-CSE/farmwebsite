@@ -1,7 +1,7 @@
 import React from 'react'
 import './beeffattening.css'
 import { BsPeople, BsSpeedometer } from 'react-icons/bs'
-import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiHealth, BiMoney, BiPlus, BiSolidArrowToBottom } from 'react-icons/bi'
+import { BiArrowFromBottom, BiArrowToBottom, BiChart, BiHealth, BiLogOut, BiMoney, BiPlus, BiSolidArrowToBottom } from 'react-icons/bi'
 import { FaCow, FaSeedling, FaUserDoctor } from 'react-icons/fa6'
 import { GiBottomRight3dArrow, GiDoctorFace } from 'react-icons/gi'
 import { MdReport } from 'react-icons/md'
