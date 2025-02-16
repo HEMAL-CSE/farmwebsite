@@ -530,7 +530,7 @@ const Home = () => {
                                 <h3>Location</h3>
                                 <p>Tania VermiCompost and
                                 Organic Fertilizer Center. <br />
-                                    Shovarampur Board Office, Faridpur Sadar, Faridpur.</p>
+                                Komarpur Bus Stand, Faridpur Sadar, Faridpur.</p>
                             </div>
                         </div>
 
